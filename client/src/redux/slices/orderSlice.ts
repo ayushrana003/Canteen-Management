@@ -1,0 +1,52 @@
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { OrderState, IOrder } from '@/types';
+
+const initialState: OrderState = {
+    currentOrder: null,
+    orders: [],
+    loading: false,
+    error: null,
+};
+
+const orderSlice = createSlice({
+    name: 'order',
+    initialState,
+    reducers: {
+        setCurrentOrder(state, action: PayloadAction<IOrder>) {
+            state.currentOrder = action.payload;
+        },
+        updateCurrentOrderStatus(state, action: PayloadAction<IOrder['orderStatus']>) {
+            if (state.currentOrder) {
+                state.currentOrder.orderStatus = action.payload;
+            }
+        },
+        updateCurrentOrder(state, action: PayloadAction<Partial<IOrder>>) {
+            if (state.currentOrder) {
+                Object.assign(state.currentOrder, action.payload);
+            }
+        },
+        setOrders(state, action: PayloadAction<IOrder[]>) {
+            state.orders = action.payload;
+        },
+        setLoading(state, action: PayloadAction<boolean>) {
+            state.loading = action.payload;
+        },
+        setError(state, action: PayloadAction<string | null>) {
+            state.error = action.payload;
+        },
+        clearCurrentOrder(state) {
+            state.currentOrder = null;
+        },
+    },
+});
+
+export const {
+    setCurrentOrder,
+    updateCurrentOrderStatus,
+    updateCurrentOrder,
+    setOrders,
+    setLoading,
+    setError,
+    clearCurrentOrder,
+} = orderSlice.actions;
+export default orderSlice.reducer;
