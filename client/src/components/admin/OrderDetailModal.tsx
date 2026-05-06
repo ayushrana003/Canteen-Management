@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+
+import { useState, useEffect } from 'react';
 import { X, User, MapPin, Clock, CreditCard, Check, XCircle, Package, Truck, ChefHat, ArrowRight, AlertTriangle, Phone, MessageSquare } from 'lucide-react';
 import { acceptOrder, updateOrderStatus, rejectOrder, type IAdminOrder } from '@/services/adminApi';
 import AdminBadge from '@/components/admin/ui/AdminBadge';
@@ -177,16 +178,6 @@ export default function OrderDetailModal({ order, onClose, onRefresh }: Props) {
                         <div className="flex items-start gap-3">
                             <div className="w-10 h-10 rounded-xl bg-[#ECFDF5] flex items-center justify-center text-[#16A34A] shrink-0">
                                 <MapPin size={18} />
-                            </div>
-                            <div>
-                                <p className="font-semibold text-[0.85rem] text-[#0F0F0F]">Delivery Address</p>
-                                <p className="text-[0.84rem] text-[#4A4A4A] mt-0.5">{order.deliveryAddress?.addressLine}</p>
-                                {order.deliveryAddress?.landmark && (
-                                    <p className="text-[0.78rem] text-[#8E8E8E] mt-0.5">Near {order.deliveryAddress.landmark}</p>
-                                )}
-                                {order.distance && (
-                                    <p className="text-[0.75rem] text-[#8E8E8E] mt-0.5">{order.distance.toFixed(1)} km away</p>
-                                )}
                             </div>
                         </div>
 

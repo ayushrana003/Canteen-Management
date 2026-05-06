@@ -158,6 +158,9 @@ export const updateOrderStatus = async (req: Request, res: Response): Promise<vo
         }
 
         order.orderStatus = status;
+        if (status === 'PICKED_UP' && order.paymentMethod === 'COD') {
+            order.paymentStatus = 'PAID';
+        }
         if (!order.statusHistory) order.statusHistory = [];
         order.statusHistory.push({ status, timestamp: new Date() });
         order.updatedAt = new Date();
@@ -817,7 +820,7 @@ export const getDetailedOrderStats = async (req: Request, res: Response): Promis
         }
 
         const dateMatch = { createdAt: { $gte: startDate } };
-        const deliveredMatch = { ...dateMatch, orderStatus: 'DELIVERED', paymentStatus: 'PAID' };
+        const deliveredMatch = { ...dateMatch, orderStatus: 'PICKED_UP', paymentStatus: 'PAID' };
 
         // Basic stats
         const periodRevenueAgg = await Order.aggregate([
@@ -838,7 +841,7 @@ export const getDetailedOrderStats = async (req: Request, res: Response): Promis
                 const hourEnd = new Date(startDate);
                 hourEnd.setHours(i + 3);
                 const agg = await Order.aggregate([
-                    { $match: { createdAt: { $gte: hourStart, $lt: hourEnd }, orderStatus: 'DELIVERED', paymentStatus: 'PAID' } },
+                    { $match: { createdAt: { $gte: hourStart, $lt: hourEnd }, orderStatus: 'PICKED_UP', paymentStatus: 'PAID' } },
                     { $group: { _id: null, total: { $sum: '$total' } } }
                 ]);
                 trendData.push({
@@ -858,7 +861,7 @@ export const getDetailedOrderStats = async (req: Request, res: Response): Promis
                 dayEnd.setDate(dayEnd.getDate() + step);
                 
                 const agg = await Order.aggregate([
-                    { $match: { createdAt: { $gte: dayStart, $lt: dayEnd }, orderStatus: 'DELIVERED', paymentStatus: 'PAID' } },
+                    { $match: { createdAt: { $gte: dayStart, $lt: dayEnd }, orderStatus: 'PICKED_UP', paymentStatus: 'PAID' } },
                     { $group: { _id: null, total: { $sum: '$total' } } }
                 ]);
                 trendData.push({
