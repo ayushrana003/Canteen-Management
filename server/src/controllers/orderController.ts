@@ -17,10 +17,7 @@ export const createOrder = async (req: Request, res: Response): Promise<void> =>
 
         const { deliveryAddress, paymentMethod, specialInstructions } = req.body;
 
-        if (!deliveryAddress) {
-            res.status(400).json({ message: 'Delivery address is required' });
-            return;
-        }
+        // deliveryAddress is optional for canteen pickup mode
 
         if (req.user.isBlocked) {
             res.status(403).json({ message: 'Your account has been blocked. Please contact support.' });
@@ -59,7 +56,7 @@ export const createOrder = async (req: Request, res: Response): Promise<void> =>
         let distance = 0;
         let deliveryCharges = 0;
 
-        if (deliveryAddress.coordinates?.lat && deliveryAddress.coordinates?.lng) {
+        if (deliveryAddress && deliveryAddress.coordinates?.lat && deliveryAddress.coordinates?.lng) {
             // GPS-based address — calculate and validate distance
             distance = calculateDistance(
                 restaurant.address.coordinates.lat,

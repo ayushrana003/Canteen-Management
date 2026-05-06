@@ -139,7 +139,7 @@ export interface IOrder {
     orderId: string;
     userId: string;
     items: IOrderItem[];
-    deliveryAddress: IAddress;
+    deliveryAddress?: IAddress;
     paymentMethod: PaymentMethod;
     paymentStatus: PaymentStatus;
     razorpayOrderId?: string;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { User, Package, LogOut, ArrowRight, CreditCard, Banknote, Mail, Phone, Shield, Clock, ChefHat } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
@@ -214,7 +214,7 @@ export default function ProfilePage() {
                 className="container max-w-[880px]"
                 style={{ padding: 'clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(3rem, 6vw, 4rem)' }}
             >
-                {/* ─── Profile Tab ─── */}
+                {/* â”€â”€â”€ Profile Tab â”€â”€â”€ */}
                 {tab === 'profile' && (
                     <div
                         style={{
@@ -281,115 +281,7 @@ export default function ProfilePage() {
                         </form>
                     </div>
                 )}
-
-                {/* ─── Addresses Tab ─── */}
-                {tab === 'addresses' && (
-                    <div>
-                        {addresses.length === 0 ? (
-                            <div
-                                style={{
-                                    background: 'white',
-                                    borderRadius: 18,
-                                    border: '1px solid #EEEEEE',
-                                    padding: 'clamp(2.5rem, 8vw, 4rem) clamp(1rem, 4vw, 2rem)',
-                                    textAlign: 'center',
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        width: 64,
-                                        height: 64,
-                                        borderRadius: 18,
-                                        background: '#F7F7F5',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        color: '#B0B0B0',
-                                        margin: '0 auto 16px',
-                                    }}
-                                >
-                                    <MapPin size={28} />
-                                </div>
-                                <p style={{ fontWeight: 600, color: '#4A4A4A', fontSize: 'clamp(0.88rem, 3vw, 1rem)', marginBottom: 4 }}>No saved addresses</p>
-                                <p style={{ color: '#8E8E8E', fontSize: 'clamp(0.78rem, 2.5vw, 0.88rem)' }}>Add an address during checkout</p>
-                            </div>
-                        ) : (
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.6rem, 2vw, 0.85rem)' }}>
-                                {addresses.map((addr) => (
-                                    <div
-                                        key={addr._id}
-                                        style={{
-                                            background: 'white',
-                                            borderRadius: 16,
-                                            border: addr.isDefault ? '1.5px solid #16A34A' : '1px solid #EEEEEE',
-                                            padding: 'clamp(0.85rem, 3vw, 1.25rem) clamp(1rem, 3vw, 1.5rem)',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: 'clamp(0.6rem, 2.5vw, 1rem)',
-                                            transition: 'box-shadow 0.2s',
-                                        }}
-                                    >
-                                        <div
-                                            style={{
-                                                width: 'clamp(36px, 8vw, 44px)',
-                                                height: 'clamp(36px, 8vw, 44px)',
-                                                borderRadius: 12,
-                                                background: addr.isDefault ? '#ECFDF5' : '#F7F7F5',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                color: addr.isDefault ? '#16A34A' : '#8E8E8E',
-                                                flexShrink: 0,
-                                            }}
-                                        >
-                                            <MapPin size={18} />
-                                        </div>
-                                        <div style={{ flex: 1, minWidth: 0 }}>
-                                            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
-                                                <span style={{ fontWeight: 700, fontSize: 'clamp(0.82rem, 2.5vw, 0.92rem)', color: '#0F0F0F' }}>{addr.label}</span>
-                                                {addr.isDefault && (
-                                                    <span style={{ background: '#DCFCE7', color: '#16A34A', fontSize: 'clamp(0.6rem, 1.8vw, 0.68rem)', fontWeight: 700, padding: '1px 8px', borderRadius: 6 }}>
-                                                        Default
-                                                    </span>
-                                                )}
-                                            </div>
-                                            <p style={{ fontSize: 'clamp(0.75rem, 2.3vw, 0.85rem)', color: '#4A4A4A', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                                                {addr.addressLine}
-                                            </p>
-                                            {addr.landmark && (
-                                                <p style={{ fontSize: 'clamp(0.68rem, 2vw, 0.78rem)', color: '#8E8E8E', margin: '2px 0 0' }}>Near {addr.landmark}</p>
-                                            )}
-                                        </div>
-                                        <button
-                                            onClick={() => handleDeleteAddress(addr._id)}
-                                            style={{
-                                                width: 36,
-                                                height: 36,
-                                                borderRadius: 10,
-                                                border: 'none',
-                                                background: '#FEF2F2',
-                                                color: '#DC2626',
-                                                cursor: 'pointer',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                flexShrink: 0,
-                                                transition: 'background 0.2s',
-                                            }}
-                                            onMouseEnter={(e) => { e.currentTarget.style.background = '#FEE2E2'; }}
-                                            onMouseLeave={(e) => { e.currentTarget.style.background = '#FEF2F2'; }}
-                                            title="Remove"
-                                        >
-                                            <Trash2 size={16} />
-                                        </button>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                )}
-
-                {/* ─── Orders Tab ─── */}
+                {/* â”€â”€â”€ Orders Tab â”€â”€â”€ */}
                 {tab === 'orders' && (
                     <div>
                         {ordersLoading ? (
@@ -482,7 +374,7 @@ export default function ProfilePage() {
                                             {/* Order body */}
                                             <div style={{ padding: 'clamp(0.75rem, 2.5vw, 1rem) clamp(1rem, 3vw, 1.5rem)' }}>
                                                 <p style={{ fontSize: 'clamp(0.75rem, 2.3vw, 0.85rem)', color: '#4A4A4A', margin: '0 0 10px', lineHeight: 1.5 }}>
-                                                    {order.items.map((i) => `${i.name} ×${i.quantity}`).join(' · ')}
+                                                    {order.items.map((i) => `${i.name} Ã—${i.quantity}`).join(' Â· ')}
                                                 </p>
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 12 }}>
                                                     <span
@@ -518,7 +410,7 @@ export default function ProfilePage() {
                                                 {/* Footer row */}
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <span style={{ fontWeight: 800, color: '#16A34A', fontSize: 'clamp(0.92rem, 3vw, 1.05rem)', fontFamily: 'var(--font-display)' }}>
-                                                        ₹{order.total}
+                                                        â‚¹{order.total}
                                                     </span>
                                                     <Link
                                                         to={`/order/${order._id}`}

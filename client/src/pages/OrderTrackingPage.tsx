@@ -1,8 +1,8 @@
 import { useEffect, useState, useMemo, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
-    ClipboardList, CheckCircle2, UtensilsCrossed, Bike, Home,
-    XCircle, Pizza, MapPin, Check, ArrowRight, Clock, CreditCard,
+    ClipboardList, CheckCircle2, UtensilsCrossed, Bike, Store,
+    XCircle, Pizza, Check, ArrowRight, Clock, CreditCard,
     Timer, RefreshCw, Loader2, Ban, RotateCw, Package,
 } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
@@ -26,7 +26,7 @@ const STATUS_STEPS: StatusStep[] = [
     { key: 'ACCEPTED', label: 'Accepted', mobileLabel: 'Accepted', icon: CheckCircle2 },
     { key: 'PREPARING', label: 'Preparing', mobileLabel: 'Preparing', icon: UtensilsCrossed },
     { key: 'READY_TO_PICKUP', label: 'Ready to Pickup', mobileLabel: 'Ready', icon: Bike },
-    { key: 'PICKED_UP', label: 'Picked Up', mobileLabel: 'Picked Up', icon: Home },
+    { key: 'PICKED_UP', label: 'Picked Up', mobileLabel: 'Picked Up', icon: Store },
 ];
 
 const STATUS_HEADINGS: Record<string, string> = {
@@ -290,7 +290,7 @@ export default function OrderTrackingPage() {
                                 <Timer size={15} style={{ color: '#E8A317' }} />
                                 <div style={{ textAlign: 'left' }}>
                                     <p style={{ fontSize: 'clamp(0.58rem, 1.8vw, 0.65rem)', color: '#8E8E8E', fontWeight: 500, margin: 0, lineHeight: 1 }}>
-                                        Estimated delivery
+                                        Estimated ready
                                     </p>
                                     <p style={{
                                         fontFamily: 'Outfit, sans-serif', fontWeight: 700,
@@ -486,10 +486,12 @@ export default function OrderTrackingPage() {
                             <span style={{ fontSize: 'clamp(0.65rem, 2vw, 0.78rem)', color: '#8E8E8E' }}>Subtotal</span>
                             <span style={{ fontSize: 'clamp(0.65rem, 2vw, 0.78rem)', color: '#4A4A4A' }}>{'\u20B9'}{currentOrder.subtotal}</span>
                         </div>
+                        {(currentOrder.deliveryCharges ?? 0) > 0 && (
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.3rem' }}>
                             <span style={{ fontSize: 'clamp(0.65rem, 2vw, 0.78rem)', color: '#8E8E8E' }}>Delivery</span>
                             <span style={{ fontSize: 'clamp(0.65rem, 2vw, 0.78rem)', color: '#4A4A4A' }}>{'\u20B9'}{currentOrder.deliveryCharges}</span>
                         </div>
+                        )}
                         {(currentOrder.discount ?? 0) > 0 && (
                             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.3rem' }}>
                                 <span style={{ fontSize: 'clamp(0.65rem, 2vw, 0.78rem)', color: '#16A34A' }}>Discount</span>
@@ -509,38 +511,24 @@ export default function OrderTrackingPage() {
                     </div>
                 </div>
 
-                {/* ── Delivery Address Card ─────────────────────────── */}
+                {/* ── Canteen Pickup Card ──────────────────────────── */}
                 <div style={{
                     background: 'white', borderRadius: 18,
                     padding: 'clamp(0.75rem, 3vw, 1rem) clamp(0.75rem, 3vw, 1.1rem)',
                     boxShadow: '0 1px 6px rgba(0,0,0,0.05)', marginBottom: '0.75rem',
                 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                         <span style={{
-                            width: 26, height: 26, borderRadius: 7, background: '#FFFBF0',
+                            width: 26, height: 26, borderRadius: 7, background: '#ECFDF5',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            color: '#E8A317', flexShrink: 0,
+                            color: '#16A34A', flexShrink: 0,
                         }}>
-                            <MapPin size={13} />
+                            <Store size={13} />
                         </span>
                         <span style={{ fontWeight: 700, fontSize: 'clamp(0.72rem, 2.3vw, 0.85rem)', color: '#0F0F0F' }}>
-                            Delivering to
+                            Pickup from Canteen
                         </span>
                     </div>
-                    <p style={{
-                        fontSize: 'clamp(0.68rem, 2.2vw, 0.8rem)', color: '#4A4A4A',
-                        margin: '0 0 0 2.1rem', lineHeight: 1.4,
-                    }}>
-                        {currentOrder.deliveryAddress.addressLine}
-                    </p>
-                    {currentOrder.deliveryAddress.landmark && (
-                        <p style={{
-                            fontSize: 'clamp(0.6rem, 1.8vw, 0.72rem)', color: '#8E8E8E',
-                            margin: '0.15rem 0 0 2.1rem',
-                        }}>
-                            Near {currentOrder.deliveryAddress.landmark}
-                        </p>
-                    )}
                 </div>
 
                 {/* ── Action Buttons ────────────────────────────────── */}
