@@ -147,8 +147,8 @@ export default function CustomizationModal({ item, onClose }: CustomizationModal
                                             key={opt.name}
                                             className="flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200"
                                             style={{
-                                                border: `1.5px solid ${isActive ? '#E8A317' : '#E0E0DC'}`,
-                                                background: isActive ? '#FFFBF0' : 'white',
+                                                border: `1.5px solid ${isActive ? '#16A34A' : '#E0E0DC'}`,
+                                                background: isActive ? '#ECFDF5' : 'white',
                                             }}
                                         >
                                             <div className="flex items-center gap-3">
@@ -156,10 +156,10 @@ export default function CustomizationModal({ item, onClose }: CustomizationModal
                                                     /* Radio circle */
                                                     <div
                                                         className="w-[18px] h-[18px] rounded-full border-2 flex items-center justify-center transition-all shrink-0"
-                                                        style={{ borderColor: isActive ? '#E8A317' : '#D4D4D0' }}
+                                                        style={{ borderColor: isActive ? '#16A34A' : '#D4D4D0' }}
                                                     >
                                                         {isActive && (
-                                                            <div className="w-[10px] h-[10px] rounded-full bg-[#E8A317]" />
+                                                            <div className="w-[10px] h-[10px] rounded-full bg-[#16A34A]" />
                                                         )}
                                                     </div>
                                                 ) : (
@@ -167,8 +167,8 @@ export default function CustomizationModal({ item, onClose }: CustomizationModal
                                                     <div
                                                         className="w-[18px] h-[18px] rounded-[5px] border-2 flex items-center justify-center transition-all shrink-0"
                                                         style={{
-                                                            borderColor: isActive ? '#E8A317' : '#D4D4D0',
-                                                            background: isActive ? '#E8A317' : 'transparent',
+                                                            borderColor: isActive ? '#16A34A' : '#D4D4D0',
+                                                            background: isActive ? '#16A34A' : 'transparent',
                                                         }}
                                                     >
                                                         {isActive && <Check size={12} className="text-white" strokeWidth={3} />}
@@ -189,7 +189,7 @@ export default function CustomizationModal({ item, onClose }: CustomizationModal
                                             </div>
                                             <span
                                                 className="font-bold text-[0.88rem] shrink-0 ml-2"
-                                                style={{ color: opt.price > 0 ? '#E8A317' : '#8E8E8E' }}
+                                                style={{ color: opt.price > 0 ? '#16A34A' : '#8E8E8E' }}
                                             >
                                                 {opt.price > 0 ? `+₹${opt.price}` : 'Included'}
                                             </span>

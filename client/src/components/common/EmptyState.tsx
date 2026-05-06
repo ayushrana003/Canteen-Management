@@ -15,7 +15,7 @@ export default function EmptyState({ icon: Icon, title, description, action }: E
                 className="w-24 h-24 rounded-2xl flex items-center justify-center mb-6"
                 style={{
                     background: '#F7F7F5',
-                    color: '#E8A317',
+                    color: '#16A34A',
                 }}
             >
                 {Icon ? <Icon size={42} strokeWidth={1.5} /> : <Pizza size={42} strokeWidth={1.5} />}

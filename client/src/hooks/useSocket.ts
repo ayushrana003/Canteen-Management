@@ -9,8 +9,8 @@ const SOCKET_URL = import.meta.env.VITE_SOCKET_URL as string;
 const STATUS_LABELS: Record<string, string> = {
     ACCEPTED: 'Order Accepted!',
     PREPARING: 'Your food is being prepared',
-    OUT_FOR_DELIVERY: 'Order is on the way!',
-    DELIVERED: 'Order Delivered!',
+    READY_TO_PICKUP: 'Order is ready to pickup!',
+    PICKED_UP: 'Order Picked Up!',
     CANCELLED: 'Order Cancelled',
 };
 
@@ -103,7 +103,7 @@ export const useSocket = (userId: string | undefined) => {
                 if (label) {
                     if (data.status === 'CANCELLED') {
                         toast.error(label, { duration: 5000 });
-                    } else if (data.status === 'DELIVERED') {
+                    } else if (data.status === 'PICKED_UP') {
                         toast.success(label, { icon: '🎉', duration: 5000 });
                     } else {
                         toast.success(label, { duration: 4000 });

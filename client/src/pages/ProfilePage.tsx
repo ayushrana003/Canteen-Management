@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { User, MapPin, Package, LogOut, Trash2, ArrowRight, CreditCard, Banknote, Mail, Phone, Shield, Clock, ChefHat } from 'lucide-react';
+import { User, Package, LogOut, ArrowRight, CreditCard, Banknote, Mail, Phone, Shield, Clock, ChefHat } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import LoadingSpinner from '@/components/common/LoadingSpinner';
@@ -9,17 +9,17 @@ import { useAppDispatch } from '@/redux/hooks';
 import { updateUser } from '@/redux/slices/authSlice';
 import { userService } from '@/services/userService';
 import { orderService } from '@/services/orderService';
-import type { IOrder, IAddress } from '@/types';
+import type { IOrder } from '@/types';
 import toast from 'react-hot-toast';
 
-type Tab = 'profile' | 'addresses' | 'orders';
+type Tab = 'profile' | 'orders';
 
 const ORDER_STATUS_COLORS: Record<string, { color: string; bg: string }> = {
-    PENDING: { color: '#D97706', bg: '#FFFBEB' },
+    PENDING: { color: '#15803D', bg: '#ECFDF5' },
     ACCEPTED: { color: '#2563EB', bg: '#EFF6FF' },
     PREPARING: { color: '#7C3AED', bg: '#F5F3FF' },
-    OUT_FOR_DELIVERY: { color: '#EA580C', bg: '#FFF7ED' },
-    DELIVERED: { color: '#16A34A', bg: '#F0FDF4' },
+    READY_TO_PICKUP: { color: '#EA580C', bg: '#FFF7ED' },
+    PICKED_UP: { color: '#16A34A', bg: '#F0FDF4' },
     CANCELLED: { color: '#DC2626', bg: '#FEF2F2' },
 };
 
@@ -33,14 +33,13 @@ export default function ProfilePage() {
     const [ordersLoading, setOrdersLoading] = useState(false);
     const [name, setName] = useState(user?.name ?? '');
     const [email, setEmail] = useState(user?.email ?? '');
-    const [addresses, setAddresses] = useState<IAddress[]>(user?.addresses ?? []);
+
 
     // Sync state when user loads after initial render
     useEffect(() => {
         if (user) {
             setName((prev) => prev || user.name || '');
             setEmail((prev) => prev || user.email || '');
-            setAddresses((prev) => prev.length ? prev : user.addresses ?? []);
         }
     }, [user]);
 
@@ -51,11 +50,7 @@ export default function ProfilePage() {
         }
     }, [tab]);
 
-    useEffect(() => {
-        if (tab === 'addresses') {
-            userService.getProfile().then((u) => setAddresses(u.addresses)).catch(() => { });
-        }
-    }, [tab]);
+
 
     const handleSaveProfile = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -68,19 +63,10 @@ export default function ProfilePage() {
         finally { setLoading(false); }
     };
 
-    const handleDeleteAddress = async (id: string) => {
-        try {
-            await userService.deleteAddress(id);
-            const updated = await userService.getProfile();
-            setAddresses(updated.addresses);
-            dispatch(updateUser(updated));
-            toast.success('Address removed');
-        } catch { toast.error('Failed to remove address'); }
-    };
+
 
     const tabs: { key: Tab; label: string; icon: any }[] = [
         { key: 'profile', label: 'Profile', icon: User },
-        { key: 'addresses', label: 'Addresses', icon: MapPin },
         { key: 'orders', label: 'Orders', icon: Package },
     ];
 
@@ -105,8 +91,8 @@ export default function ProfilePage() {
             {/* Hero header */}
             <div
                 style={{
-                    background: 'linear-gradient(135deg, #FFFBF0 0%, #FFF4D6 50%, #FFE8A8 100%)',
-                    borderBottom: '1px solid #F0CA5A40',
+                    background: 'linear-gradient(135deg, #ECFDF5 0%, #DCFCE7 50%, #BBF7D0 100%)',
+                    borderBottom: '1px solid #86EFAC40',
                 }}
             >
                 <div
@@ -120,8 +106,8 @@ export default function ProfilePage() {
                                 width: 'clamp(52px, 12vw, 72px)',
                                 height: 'clamp(52px, 12vw, 72px)',
                                 borderRadius: 18,
-                                background: 'linear-gradient(135deg, #E8A317 0%, #F0B429 100%)',
-                                boxShadow: '0 6px 20px rgba(232,163,23,0.3)',
+                                background: 'linear-gradient(135deg, #0F7A49 0%, #16A34A 48%, #34D399 100%)',
+                                boxShadow: '0 6px 20px rgba(22,163,74,0.3)',
                                 color: 'white',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -149,7 +135,7 @@ export default function ProfilePage() {
                             >
                                 {user?.name || 'Pizza Lover'}
                             </h1>
-                            <p style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.88rem)', color: '#9A7209', margin: '2px 0 0', fontWeight: 500 }}>
+                            <p style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.88rem)', color: '#166534', margin: '2px 0 0', fontWeight: 500 }}>
                                 +91 {user?.phone}
                             </p>
                             {memberSince && (
@@ -206,12 +192,12 @@ export default function ProfilePage() {
                                     cursor: 'pointer',
                                     fontWeight: isActive ? 700 : 500,
                                     fontSize: 'clamp(0.8rem, 2.5vw, 0.88rem)',
-                                    color: isActive ? '#E8A317' : '#8E8E8E',
+                                    color: isActive ? '#16A34A' : '#8E8E8E',
                                     display: 'flex',
                                     alignItems: 'center',
                                     gap: 6,
                                     whiteSpace: 'nowrap',
-                                    borderBottom: `2.5px solid ${isActive ? '#E8A317' : 'transparent'}`,
+                                    borderBottom: `2.5px solid ${isActive ? '#16A34A' : 'transparent'}`,
                                     transition: 'color 0.2s, border-color 0.2s',
                                     marginBottom: -1,
                                 }}
@@ -251,7 +237,7 @@ export default function ProfilePage() {
                                     color: '#0F0F0F',
                                 }}
                             >
-                                <Shield size={18} style={{ color: '#E8A317' }} /> Edit Profile
+                                <Shield size={18} style={{ color: '#16A34A' }} /> Edit Profile
                             </h3>
                         </div>
                         <form
@@ -335,7 +321,7 @@ export default function ProfilePage() {
                                         style={{
                                             background: 'white',
                                             borderRadius: 16,
-                                            border: addr.isDefault ? '1.5px solid #E8A317' : '1px solid #EEEEEE',
+                                            border: addr.isDefault ? '1.5px solid #16A34A' : '1px solid #EEEEEE',
                                             padding: 'clamp(0.85rem, 3vw, 1.25rem) clamp(1rem, 3vw, 1.5rem)',
                                             display: 'flex',
                                             alignItems: 'center',
@@ -348,11 +334,11 @@ export default function ProfilePage() {
                                                 width: 'clamp(36px, 8vw, 44px)',
                                                 height: 'clamp(36px, 8vw, 44px)',
                                                 borderRadius: 12,
-                                                background: addr.isDefault ? '#FFFBF0' : '#F7F7F5',
+                                                background: addr.isDefault ? '#ECFDF5' : '#F7F7F5',
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
-                                                color: addr.isDefault ? '#E8A317' : '#8E8E8E',
+                                                color: addr.isDefault ? '#16A34A' : '#8E8E8E',
                                                 flexShrink: 0,
                                             }}
                                         >
@@ -425,11 +411,11 @@ export default function ProfilePage() {
                                         width: 64,
                                         height: 64,
                                         borderRadius: 18,
-                                        background: 'linear-gradient(135deg, #FFFBF0, #FFE8A8)',
+                                        background: 'linear-gradient(135deg, #ECFDF5, #BBF7D0)',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        color: '#E8A317',
+                                        color: '#16A34A',
                                         margin: '0 auto 16px',
                                     }}
                                 >
@@ -521,8 +507,8 @@ export default function ProfilePage() {
                                                             fontWeight: 600,
                                                             padding: '2px 8px',
                                                             borderRadius: 6,
-                                                            background: order.paymentStatus === 'PAID' ? '#F0FDF4' : '#FFFBEB',
-                                                            color: order.paymentStatus === 'PAID' ? '#16A34A' : '#D97706',
+                                                            background: order.paymentStatus === 'PAID' ? '#F0FDF4' : '#ECFDF5',
+                                                            color: order.paymentStatus === 'PAID' ? '#16A34A' : '#15803D',
                                                         }}
                                                     >
                                                         {order.paymentStatus === 'PAID' ? 'Paid' : 'Pending'}
@@ -531,13 +517,13 @@ export default function ProfilePage() {
 
                                                 {/* Footer row */}
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                                    <span style={{ fontWeight: 800, color: '#E8A317', fontSize: 'clamp(0.92rem, 3vw, 1.05rem)', fontFamily: 'var(--font-display)' }}>
+                                                    <span style={{ fontWeight: 800, color: '#16A34A', fontSize: 'clamp(0.92rem, 3vw, 1.05rem)', fontFamily: 'var(--font-display)' }}>
                                                         ₹{order.total}
                                                     </span>
                                                     <Link
                                                         to={`/order/${order._id}`}
                                                         style={{
-                                                            color: '#E8A317',
+                                                            color: '#16A34A',
                                                             textDecoration: 'none',
                                                             fontWeight: 600,
                                                             fontSize: 'clamp(0.78rem, 2.5vw, 0.88rem)',
@@ -546,12 +532,12 @@ export default function ProfilePage() {
                                                             gap: 4,
                                                             padding: '6px 14px',
                                                             borderRadius: 10,
-                                                            background: '#FFFBF0',
-                                                            border: '1px solid #F0CA5A60',
+                                                            background: '#ECFDF5',
+                                                            border: '1px solid #86EFAC60',
                                                             transition: 'background 0.2s, box-shadow 0.2s',
                                                         }}
-                                                        onMouseEnter={(e) => { e.currentTarget.style.background = '#FFF4D6'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(232,163,23,0.15)'; }}
-                                                        onMouseLeave={(e) => { e.currentTarget.style.background = '#FFFBF0'; e.currentTarget.style.boxShadow = 'none'; }}
+                                                        onMouseEnter={(e) => { e.currentTarget.style.background = '#DCFCE7'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(22,163,74,0.15)'; }}
+                                                        onMouseLeave={(e) => { e.currentTarget.style.background = '#ECFDF5'; e.currentTarget.style.boxShadow = 'none'; }}
                                                     >
                                                         Track <ArrowRight size={14} />
                                                     </Link>

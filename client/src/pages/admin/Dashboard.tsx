@@ -14,11 +14,11 @@ type TimeRange = 'today' | 'week' | 'month' | '3months';
 const STAT_CARDS = [
     { key: 'revenue' as const, label: "Revenue", icon: IndianRupee, color: '#0F0F0F', bg: '#FAFAF8', prefix: '\u20B9' },
     { key: 'orders' as const, label: "Total Orders", icon: ShoppingBag, color: '#0F0F0F', bg: '#FAFAF8', prefix: '' },
-    { key: 'pendingOrders' as const, label: 'Pending Orders', icon: Clock, color: '#E8A317', bg: '#FFFBF0', prefix: '' },
+    { key: 'pendingOrders' as const, label: 'Pending Orders', icon: Clock, color: '#16A34A', bg: '#ECFDF5', prefix: '' },
     { key: 'activeUsers' as const, label: 'Total Active Users', icon: Users, color: '#0F0F0F', bg: '#FAFAF8', prefix: '' },
 ];
 
-const PIE_COLORS = ['#E8A317', '#F0CA5A', '#0F0F0F', '#4A4A4A', '#8E8E8E', '#EEEEEE'];
+const PIE_COLORS = ['#16A34A', '#86EFAC', '#0F0F0F', '#4A4A4A', '#8E8E8E', '#EEEEEE'];
 
 export default function Dashboard() {
     const [stats, setStats] = useState<IDetailedStats | null>(null);
@@ -159,8 +159,8 @@ export default function Dashboard() {
                     const value = stats ? stats[card.key] : 0;
                     const isPending = card.key === 'pendingOrders' && value > 0;
                     return (
-                        <div key={card.key} className={`bg-white rounded-[1.25rem] p-5 sm:p-6 border ${isPending ? 'border-[#E8A317]' : 'border-[#E5E7EB]'} shadow-sm relative overflow-hidden transition-all hover:shadow-md`}>
-                            {isPending && <div className="absolute top-0 right-0 w-16 h-16 bg-[#FFFBF0] rounded-bl-full -z-0" />}
+                        <div key={card.key} className={`bg-white rounded-[1.25rem] p-5 sm:p-6 border ${isPending ? 'border-[#16A34A]' : 'border-[#E5E7EB]'} shadow-sm relative overflow-hidden transition-all hover:shadow-md`}>
+                            {isPending && <div className="absolute top-0 right-0 w-16 h-16 bg-[#ECFDF5] rounded-bl-full -z-0" />}
                             <div className="flex items-center justify-between mb-4 relative z-10">
                                 <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 border border-[#EEEEEE]" style={{ background: card.bg, color: card.color }}>
                                     <card.icon size={18} />
@@ -168,7 +168,7 @@ export default function Dashboard() {
                             </div>
                             <div className="relative z-10">
                                 <p className="text-[0.8rem] text-[#8E8E8E] font-medium mb-1">{card.label}</p>
-                                <p className={`font-outfit font-extrabold text-[1.4rem] sm:text-[1.8rem] text-[#0F0F0F] tracking-tight ${isPending ? 'text-[#E8A317]' : ''}`}>
+                                <p className={`font-outfit font-extrabold text-[1.4rem] sm:text-[1.8rem] text-[#0F0F0F] tracking-tight ${isPending ? 'text-[#16A34A]' : ''}`}>
                                     {loadingStats ? '--' : `${card.prefix}${value.toLocaleString('en-IN')}`}
                                 </p>
                             </div>
@@ -235,7 +235,7 @@ export default function Dashboard() {
 
                     {/* Best Seller */}
                     <div className="bg-white rounded-[1.25rem] border border-[#E5E7EB] shadow-sm p-6 flex flex-col justify-center">
-                        <div className="w-10 h-10 rounded-full bg-[#FFFBF0] flex items-center justify-center text-[#E8A317] mb-4">
+                        <div className="w-10 h-10 rounded-full bg-[#ECFDF5] flex items-center justify-center text-[#16A34A] mb-4">
                             <Award size={18} />
                         </div>
                         <p className="text-[0.8rem] text-[#8E8E8E] font-medium mb-1">Top Selling Item</p>

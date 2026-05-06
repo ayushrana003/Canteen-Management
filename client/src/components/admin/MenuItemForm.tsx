@@ -162,7 +162,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                         {/* Image upload */}
                         <div>
                             <label className="block font-semibold text-[0.82rem] mb-2 text-[#4A4A4A]">Image</label>
-                            <label className="flex flex-col items-center justify-center w-full h-[140px] rounded-xl border-2 border-dashed border-[#D4D4D0] cursor-pointer hover:border-[#E8A317] hover:bg-[#FFFBF0] transition-colors overflow-hidden">
+                            <label className="flex flex-col items-center justify-center w-full h-[140px] rounded-xl border-2 border-dashed border-[#D4D4D0] cursor-pointer hover:border-[#16A34A] hover:bg-[#ECFDF5] transition-colors overflow-hidden">
                                 {imagePreview ? (
                                     <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
                                 ) : (
@@ -179,7 +179,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                         <div>
                             <label className="block font-semibold text-[0.82rem] mb-1.5 text-[#4A4A4A]">Name *</label>
                             <input
-                                className="w-full h-11 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                className="w-full h-11 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                 value={name} onChange={(e) => setName(e.target.value)} placeholder="Margherita Pizza" required
                             />
                         </div>
@@ -188,7 +188,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                         <div>
                             <label className="block font-semibold text-[0.82rem] mb-1.5 text-[#4A4A4A]">Description</label>
                             <textarea
-                                className="w-full px-4 py-3 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors resize-y"
+                                className="w-full px-4 py-3 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors resize-y"
                                 rows={2} value={description} onChange={(e) => setDescription(e.target.value)}
                                 placeholder="Classic Italian pizza with fresh basil..."
                             />
@@ -199,7 +199,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                             <div>
                                 <label className="block font-semibold text-[0.82rem] mb-1.5 text-[#4A4A4A]">Category *</label>
                                 <select
-                                    className="w-full h-11 px-3 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-11 px-3 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     value={category} onChange={(e) => setCategory(e.target.value)}
                                 >
                                     {categories.length === 0 && <option value="">Loading...</option>}
@@ -211,7 +211,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                                 <div className="relative">
                                     <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8E8E8E] text-[0.85rem] font-medium">{'\u20B9'}</span>
                                     <input
-                                        className="w-full h-11 pl-8 pr-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                        className="w-full h-11 pl-8 pr-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                         type="number" min={0} value={price} onChange={(e) => setPrice(e.target.value)} placeholder="299" required
                                     />
                                 </div>
@@ -246,7 +246,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                                 <button
                                     type="button"
                                     onClick={addGroup}
-                                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FFFBF0] border border-[#F0CA5A] text-[#E8A317] text-[0.78rem] font-bold cursor-pointer hover:bg-[#FFF3D6] transition-colors"
+                                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#ECFDF5] border border-[#86EFAC] text-[#16A34A] text-[0.78rem] font-bold cursor-pointer hover:bg-[#D1FAE5] transition-colors"
                                 >
                                     <Plus size={14} /> Add Group
                                 </button>
@@ -282,7 +282,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                                                         <input
                                                             type="checkbox" checked={group.required}
                                                             onChange={(e) => updateGroup(gIdx, 'required', e.target.checked)}
-                                                            className="w-3.5 h-3.5 accent-[#E8A317]"
+                                                            className="w-3.5 h-3.5 accent-[#16A34A]"
                                                         />
                                                         Required
                                                     </label>
@@ -303,7 +303,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                                                             {group.options.map((opt, oIdx) => (
                                                                 <div key={oIdx} className="flex items-center gap-2">
                                                                     <input
-                                                                        className="flex-1 h-9 px-3 rounded-lg border border-[#EEEEEE] bg-white text-[0.82rem] outline-none focus:border-[#E8A317] transition-colors"
+                                                                        className="flex-1 h-9 px-3 rounded-lg border border-[#EEEEEE] bg-white text-[0.82rem] outline-none focus:border-[#16A34A] transition-colors"
                                                                         placeholder="Option name"
                                                                         value={opt.name}
                                                                         onChange={(e) => updateOption(gIdx, oIdx, 'name', e.target.value)}
@@ -311,7 +311,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                                                                     <div className="relative shrink-0 w-[85px]">
                                                                         <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[#8E8E8E] text-[0.75rem]">+{'\u20B9'}</span>
                                                                         <input
-                                                                            className="w-full h-9 pl-7 pr-2 rounded-lg border border-[#EEEEEE] bg-white text-[0.82rem] outline-none focus:border-[#E8A317] transition-colors"
+                                                                            className="w-full h-9 pl-7 pr-2 rounded-lg border border-[#EEEEEE] bg-white text-[0.82rem] outline-none focus:border-[#16A34A] transition-colors"
                                                                             type="number" min={0} placeholder="0"
                                                                             value={opt.price === '' as any ? '' : opt.price}
                                                                             onChange={(e) => updateOption(gIdx, oIdx, 'price', e.target.value === '' ? '' as any : Number(e.target.value))}
@@ -327,7 +327,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                                                             ))}
                                                             <button
                                                                 type="button" onClick={() => addOption(gIdx)}
-                                                                className="self-start flex items-center gap-1 text-[0.78rem] font-semibold text-[#E8A317] cursor-pointer bg-transparent border-none p-0 hover:underline"
+                                                                className="self-start flex items-center gap-1 text-[0.78rem] font-semibold text-[#16A34A] cursor-pointer bg-transparent border-none p-0 hover:underline"
                                                             >
                                                                 <Plus size={12} /> Add option
                                                             </button>
@@ -347,7 +347,7 @@ export default function MenuItemForm({ item, onClose, onSaved }: Props) {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full h-11 rounded-xl bg-[#E8A317] text-white font-bold text-[0.88rem] border-none cursor-pointer hover:bg-[#D49516] disabled:opacity-50 transition-colors shadow-[0_2px_12px_rgba(232,163,23,0.25)]"
+                            className="w-full h-11 rounded-xl bg-[#16A34A] text-white font-bold text-[0.88rem] border-none cursor-pointer hover:bg-[#15803D] disabled:opacity-50 transition-colors shadow-[0_2px_12px_rgba(22,163,74,0.25)]"
                         >
                             {loading ? 'Saving...' : isEdit ? 'Update Item' : 'Add Item'}
                         </button>

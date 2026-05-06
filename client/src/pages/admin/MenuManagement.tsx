@@ -85,7 +85,7 @@ export default function MenuManagement() {
                 actions={
                     <button
                         onClick={() => { setEditingItem(null); setShowForm(true); }}
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#E8A317] text-white font-bold text-[0.85rem] border-none cursor-pointer hover:bg-[#D49516] transition-colors shadow-[0_2px_12px_rgba(232,163,23,0.25)]"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#16A34A] text-white font-bold text-[0.85rem] border-none cursor-pointer hover:bg-[#15803D] transition-colors shadow-[0_2px_12px_rgba(22,163,74,0.25)]"
                     >
                         <Plus size={18} /> Add Item
                     </button>
@@ -118,7 +118,7 @@ export default function MenuManagement() {
                     <select
                         value={categoryFilter}
                         onChange={(e) => setCategoryFilter(e.target.value)}
-                        className="h-9 px-3 rounded-xl border border-[#EEEEEE] bg-white text-[0.82rem] font-medium text-[#0F0F0F] outline-none focus:border-[#E8A317] transition-colors ml-auto"
+                        className="h-9 px-3 rounded-xl border border-[#EEEEEE] bg-white text-[0.82rem] font-medium text-[#0F0F0F] outline-none focus:border-[#16A34A] transition-colors ml-auto"
                     >
                         <option value="">All Categories</option>
                         {categories.map(c => <option key={c} value={c}>{c}</option>)}
@@ -133,7 +133,7 @@ export default function MenuManagement() {
                         <div className="relative max-w-[360px]">
                             <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#C4C4C0]" />
                             <input
-                                className="w-full h-10 pl-10 pr-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.82rem] outline-none focus:border-[#E8A317] transition-colors"
+                                className="w-full h-10 pl-10 pr-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.82rem] outline-none focus:border-[#16A34A] transition-colors"
                                 type="text"
                                 placeholder="Search items..."
                                 value={search}
@@ -183,7 +183,7 @@ export default function MenuManagement() {
                                     <div className="p-4">
                                         <div className="flex items-start justify-between gap-2 mb-2">
                                             <h3 className="font-outfit font-bold text-[0.95rem] text-[#0F0F0F] leading-tight">{item.name}</h3>
-                                            <span className="font-outfit font-extrabold text-[1.05rem] text-[#E8A317] shrink-0">{'\u20B9'}{item.price}</span>
+                                            <span className="font-outfit font-extrabold text-[1.05rem] text-[#16A34A] shrink-0">{'\u20B9'}{item.price}</span>
                                         </div>
 
                                         {item.description && (

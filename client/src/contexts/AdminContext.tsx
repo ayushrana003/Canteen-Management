@@ -21,7 +21,7 @@ interface AdminContextValue {
 
     /** Unaccepted (PENDING status) orders for notification dropdown */
     unacceptedOrders: IAdminOrder[];
-    /** Count of all active orders (PENDING + ACCEPTED + PREPARING + OUT_FOR_DELIVERY) */
+    /** Count of all active orders (PENDING + ACCEPTED + PREPARING + READY_TO_PICKUP) */
     activeOrderCount: number;
     /** Refresh unaccepted orders & active counts from server */
     refreshActiveOrders: () => Promise<void>;
@@ -97,7 +97,7 @@ export function AdminProvider({ children }: { children: ReactNode }) {
             setPendingOrderCount(pendingData.totalOrders);
 
             // Fetch active orders count (all non-terminal statuses)
-            const activeStatuses = ['ACCEPTED', 'PREPARING', 'OUT_FOR_DELIVERY'];
+            const activeStatuses = ['ACCEPTED', 'PREPARING', 'READY_TO_PICKUP'];
             let totalActive = pendingData.totalOrders; // PENDING counts as active too
             for (const status of activeStatuses) {
                 const res = await getOrders({ status, limit: 1 });
@@ -123,9 +123,9 @@ export function AdminProvider({ children }: { children: ReactNode }) {
                 (t) => (
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                         <div style={{
-                            width: 36, height: 36, borderRadius: 10, background: '#FFFBF0',
+                            width: 36, height: 36, borderRadius: 10, background: '#ECFDF5',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            color: '#E8A317', flexShrink: 0,
+                            color: '#16A34A', flexShrink: 0,
                         }}>
                             <Bell size={18} />
                         </div>
@@ -153,10 +153,10 @@ export function AdminProvider({ children }: { children: ReactNode }) {
                     duration: 10000,
                     style: {
                         background: 'white',
-                        border: '2px solid #FDE68A',
+                        border: '2px solid #A7F3D0',
                         borderRadius: 14,
                         padding: '0.6rem 0.8rem',
-                        boxShadow: '0 8px 30px rgba(232,163,23,0.15)',
+                        boxShadow: '0 8px 30px rgba(22,163,74,0.15)',
                     },
                 }
             );

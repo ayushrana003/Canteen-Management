@@ -34,7 +34,7 @@ export interface IOrder extends Document {
     paymentStatus: 'PENDING' | 'PAID' | 'FAILED' | 'REFUNDED';
     paymentId?: string;
     razorpayOrderId?: string;
-    orderStatus: 'PENDING' | 'ACCEPTED' | 'PREPARING' | 'READY' | 'OUT_FOR_DELIVERY' | 'DELIVERED' | 'CANCELLED';
+    orderStatus: 'PENDING' | 'ACCEPTED' | 'PREPARING' | 'READY' | 'READY_TO_PICKUP' | 'PICKED_UP' | 'CANCELLED';
     preparationTime?: number;
     estimatedDeliveryTime?: Date;
     rejectionReason?: string;
@@ -105,7 +105,7 @@ const orderSchema = new Schema<IOrder>({
     razorpayOrderId: String,
     orderStatus: {
         type: String,
-        enum: ['PENDING', 'ACCEPTED', 'PREPARING', 'READY', 'OUT_FOR_DELIVERY', 'DELIVERED', 'CANCELLED'],
+        enum: ['PENDING', 'ACCEPTED', 'PREPARING', 'READY', 'READY_TO_PICKUP', 'PICKED_UP', 'CANCELLED'],
         default: 'PENDING',
         index: true
     },

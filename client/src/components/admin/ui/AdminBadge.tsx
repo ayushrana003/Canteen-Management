@@ -6,12 +6,12 @@ interface AdminBadgeProps {
 }
 
 const PRESETS: Record<string, { color: string; bg: string }> = {
-    PENDING: { color: '#D97706', bg: '#FFFBEB' },
+    PENDING: { color: '#15803D', bg: '#ECFDF5' },
     ACCEPTED: { color: '#2563EB', bg: '#EFF6FF' },
     PREPARING: { color: '#7C3AED', bg: '#F5F3FF' },
     READY: { color: '#0891B2', bg: '#ECFEFF' },
-    OUT_FOR_DELIVERY: { color: '#EA580C', bg: '#FFF7ED' },
-    DELIVERED: { color: '#16A34A', bg: '#F0FDF4' },
+    READY_TO_PICKUP: { color: '#EA580C', bg: '#FFF7ED' },
+    PICKED_UP: { color: '#16A34A', bg: '#F0FDF4' },
     CANCELLED: { color: '#DC2626', bg: '#FEF2F2' },
     PAID: { color: '#16A34A', bg: '#F0FDF4' },
     FAILED: { color: '#DC2626', bg: '#FEF2F2' },
@@ -19,7 +19,7 @@ const PRESETS: Record<string, { color: string; bg: string }> = {
     'NON-VEG': { color: '#DC2626', bg: '#FEF2F2' },
     ACTIVE: { color: '#16A34A', bg: '#F0FDF4' },
     INACTIVE: { color: '#8E8E8E', bg: '#F5F5F3' },
-    COD: { color: '#D97706', bg: '#FFFBEB' },
+    COD: { color: '#15803D', bg: '#ECFDF5' },
     ONLINE: { color: '#2563EB', bg: '#EFF6FF' },
 };
 

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import {
-    X, User, FileText, MapPin, Star, LogOut, ChevronRight, Phone
+    X, User, FileText, Star, LogOut, ChevronRight, Phone
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -48,7 +48,6 @@ export default function ProfileSidebar({ open, onClose }: Props) {
     const navItems = [
         { to: '/profile', icon: User, label: 'My Profile', desc: 'View & edit your info' },
         { to: '/profile?tab=orders', icon: FileText, label: 'My Orders', desc: 'Track & reorder' },
-        { to: '/profile?tab=addresses', icon: MapPin, label: 'Manage Addresses', desc: 'Saved delivery locations' },
     ];
 
     const initials = (user?.name || user?.phone || '?')[0].toUpperCase();
@@ -112,10 +111,10 @@ export default function ProfileSidebar({ open, onClose }: Props) {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
                         <div style={{
                             width: 52, height: 52, borderRadius: 15,
-                            background: 'linear-gradient(135deg, #FFFBF0, #FFE4A3)',
-                            border: '2px solid #F0CA5A',
+                            background: 'linear-gradient(135deg, #ECFDF5, #BBF7D0)',
+                            border: '2px solid #86EFAC',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            fontSize: '1.3rem', fontWeight: 800, color: '#9A7209', flexShrink: 0,
+                            fontSize: '1.3rem', fontWeight: 800, color: '#166534', flexShrink: 0,
                         }}>
                             {initials}
                         </div>
@@ -157,9 +156,9 @@ export default function ProfileSidebar({ open, onClose }: Props) {
                         >
                             <div style={{
                                 width: 40, height: 40, borderRadius: 12,
-                                background: '#FFFBF0', border: '1px solid rgba(232,163,23,0.15)',
+                                background: '#ECFDF5', border: '1px solid rgba(22,163,74,0.15)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                color: '#E8A317', flexShrink: 0,
+                                color: '#16A34A', flexShrink: 0,
                             }}>
                                 <item.icon size={17} />
                             </div>
@@ -191,9 +190,9 @@ export default function ProfileSidebar({ open, onClose }: Props) {
                     >
                         <div style={{
                             width: 40, height: 40, borderRadius: 12,
-                            background: '#FFF9EC', border: '1px solid rgba(232,163,23,0.15)',
+                            background: '#F0FDF4', border: '1px solid rgba(22,163,74,0.15)',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            color: '#E8A317', flexShrink: 0,
+                            color: '#16A34A', flexShrink: 0,
                         }}>
                             <Star size={17} />
                         </div>

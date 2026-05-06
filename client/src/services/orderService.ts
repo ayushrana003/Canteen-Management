@@ -1,8 +1,7 @@
 import api from './api';
-import type { IOrder, IAddress } from '@/types';
+import type { IOrder } from '@/types';
 
 export interface CreateOrderPayload {
-    deliveryAddress: IAddress;
     paymentMethod: 'COD' | 'ONLINE';
 }
 

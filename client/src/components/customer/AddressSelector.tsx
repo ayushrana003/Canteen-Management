@@ -133,7 +133,7 @@ export default function AddressSelector({ addresses, selectedId, onSelect, onAdd
     return (
         <div className="card p-7">
             <h3 className="font-outfit font-bold mb-5 flex items-center gap-2.5">
-                <span className="w-9 h-9 rounded-xl bg-[#FFFBF0] flex items-center justify-center text-[#E8A317]">
+                <span className="w-9 h-9 rounded-xl bg-[#ECFDF5] flex items-center justify-center text-[#16A34A]">
                     <MapPin size={18} />
                 </span>
                 Delivery Address
@@ -149,8 +149,8 @@ export default function AddressSelector({ addresses, selectedId, onSelect, onAdd
                                 key={addr._id}
                                 className="flex gap-4 px-5 py-4 rounded-xl cursor-pointer transition-all duration-200"
                                 style={{
-                                    border: `2px solid ${selectedId === addr._id ? '#E8A317' : '#E0E0DC'}`,
-                                    background: selectedId === addr._id ? '#FFFBF0' : 'white',
+                                    border: `2px solid ${selectedId === addr._id ? '#16A34A' : '#E0E0DC'}`,
+                                    background: selectedId === addr._id ? '#ECFDF5' : 'white',
                                 }}
                             >
                                 <input
@@ -159,11 +159,11 @@ export default function AddressSelector({ addresses, selectedId, onSelect, onAdd
                                     value={addr._id}
                                     checked={selectedId === addr._id}
                                     onChange={() => onSelect(addr._id)}
-                                    className="accent-[#E8A317] mt-[2px]"
+                                    className="accent-[#16A34A] mt-[2px]"
                                 />
                                 <div className="flex-1 min-w-0">
                                     <div className="flex gap-2 items-center mb-[0.2rem]">
-                                        <Icon size={14} className="text-[#E8A317] shrink-0" />
+                                        <Icon size={14} className="text-[#16A34A] shrink-0" />
                                         <span className="font-bold text-[0.875rem]">{addr.label}</span>
                                         {addr.isDefault && (
                                             <span className="bg-[#DCFCE7] text-[#16A34A] text-[0.7rem] font-semibold px-2 py-[0.15rem] rounded-md">
@@ -190,7 +190,7 @@ export default function AddressSelector({ addresses, selectedId, onSelect, onAdd
             {!showForm && (
                 <button
                     type="button"
-                    className="flex items-center gap-2 text-[#E8A317] font-semibold text-[0.9rem] hover:text-[#CB8D10] transition-colors"
+                    className="flex items-center gap-2 text-[#16A34A] font-semibold text-[0.9rem] hover:text-[#15803D] transition-colors"
                     onClick={() => setShowForm(true)}
                 >
                     <Plus size={16} /> Add New Address
@@ -199,7 +199,7 @@ export default function AddressSelector({ addresses, selectedId, onSelect, onAdd
 
             {/* Add address form */}
             {showForm && (
-                <div className="mt-4 rounded-xl border-2 border-[#E8A317]/30 bg-[#FFFBF0]/40 p-5 space-y-4 animate-in fade-in-0 slide-in-from-top-2">
+                <div className="mt-4 rounded-xl border-2 border-[#16A34A]/30 bg-[#ECFDF5]/40 p-5 space-y-4 animate-in fade-in-0 slide-in-from-top-2">
                     {/* Header */}
                     <div className="flex justify-between items-center">
                         <h4 className="font-outfit font-bold text-[0.95rem]">New Address</h4>
@@ -221,9 +221,9 @@ export default function AddressSelector({ addresses, selectedId, onSelect, onAdd
                                         onClick={() => setLabel(l)}
                                         className="px-4 py-2 rounded-lg text-[0.85rem] font-semibold flex items-center gap-1.5 transition-all"
                                         style={{
-                                            border: `2px solid ${label === l ? '#E8A317' : '#E0E0DC'}`,
-                                            background: label === l ? '#FFFBF0' : 'white',
-                                            color: label === l ? '#CB8D10' : '#4A4A4A',
+                                            border: `2px solid ${label === l ? '#16A34A' : '#E0E0DC'}`,
+                                            background: label === l ? '#ECFDF5' : 'white',
+                                            color: label === l ? '#15803D' : '#4A4A4A',
                                         }}
                                     >
                                         <Icon size={14} /> {l}

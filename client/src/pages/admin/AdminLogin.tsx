@@ -43,28 +43,28 @@ export default function AdminLogin() {
             >
                 {/* Decorative dots */}
                 <div className="absolute inset-0 opacity-[0.04]" style={{
-                    backgroundImage: 'radial-gradient(circle, #E8A317 1px, transparent 1px)',
+                    backgroundImage: 'radial-gradient(circle, #16A34A 1px, transparent 1px)',
                     backgroundSize: '30px 30px',
                 }} />
 
                 {/* Floating icons */}
-                <div className="absolute top-[15%] left-[15%] w-14 h-14 rounded-2xl bg-[#E8A317]/10 flex items-center justify-center text-[#E8A317]/40 animate-bounce" style={{ animationDuration: '3s' }}>
+                <div className="absolute top-[15%] left-[15%] w-14 h-14 rounded-2xl bg-[#16A34A]/10 flex items-center justify-center text-[#16A34A]/40 animate-bounce" style={{ animationDuration: '3s' }}>
                     <Pizza size={28} />
                 </div>
-                <div className="absolute bottom-[20%] right-[20%] w-12 h-12 rounded-xl bg-[#E8A317]/8 flex items-center justify-center text-[#E8A317]/30 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+                <div className="absolute bottom-[20%] right-[20%] w-12 h-12 rounded-xl bg-[#16A34A]/8 flex items-center justify-center text-[#16A34A]/30 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
                     <Coffee size={24} />
                 </div>
-                <div className="absolute top-[40%] right-[12%] w-10 h-10 rounded-lg bg-[#E8A317]/6 flex items-center justify-center text-[#E8A317]/25 animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }}>
+                <div className="absolute top-[40%] right-[12%] w-10 h-10 rounded-lg bg-[#16A34A]/6 flex items-center justify-center text-[#16A34A]/25 animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }}>
                     <Cake size={20} />
                 </div>
 
                 <div className="relative z-10 text-center px-12 max-w-md">
-                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#E8A317] to-[#F0B429] flex items-center justify-center text-white mx-auto mb-8 shadow-[0_8px_32px_rgba(232,163,23,0.3)]">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#0F7A49] via-[#16A34A] to-[#34D399] flex items-center justify-center text-white mx-auto mb-8 shadow-[0_8px_32px_rgba(22,163,74,0.3)]">
                         <ChefHat size={40} />
                     </div>
                     <h2 className="font-outfit font-extrabold text-[2.2rem] text-white tracking-[-0.03em] leading-[1.15] mb-4">
                         Manage Your<br />
-                        <span className="text-[#E8A317]">Restaurant</span>
+                        <span className="text-[#16A34A]">Restaurant</span>
                     </h2>
                     <p className="text-white/40 text-[0.95rem] leading-relaxed">
                         Control orders, menu items, delivery zones, and everything in between from one powerful dashboard.
@@ -77,7 +77,7 @@ export default function AdminLogin() {
                 <div className={`w-full max-w-[400px] ${shake ? 'animate-[shakeX_0.5s_ease-in-out]' : ''}`}>
                     {/* Mobile logo */}
                     <div className="lg:hidden text-center mb-8">
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E8A317] to-[#F0B429] flex items-center justify-center text-white mx-auto mb-4 shadow-[0_6px_20px_rgba(232,163,23,0.3)]">
+                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0F7A49] via-[#16A34A] to-[#34D399] flex items-center justify-center text-white mx-auto mb-4 shadow-[0_6px_20px_rgba(22,163,74,0.3)]">
                             <ChefHat size={32} />
                         </div>
                     </div>
@@ -98,11 +98,11 @@ export default function AdminLogin() {
                             <div className="relative">
                                 <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#C4C4C0]" />
                                 <input
-                                    className="w-full h-12 pl-11 pr-4 rounded-xl border-2 border-[#EEEEEE] bg-white text-[0.88rem] text-[#0F0F0F] font-medium outline-none focus:border-[#E8A317] transition-colors duration-200"
+                                    className="w-full h-12 pl-11 pr-4 rounded-xl border-2 border-[#EEEEEE] bg-white text-[0.88rem] text-[#0F0F0F] font-medium outline-none focus:border-[#16A34A] transition-colors duration-200"
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="admin@diamondpizza.com"
+                                    placeholder="admin@campusbites.com"
                                     autoFocus
                                     required
                                     id="admin-email"
@@ -118,7 +118,7 @@ export default function AdminLogin() {
                             <div className="relative">
                                 <Lock size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#C4C4C0]" />
                                 <input
-                                    className="w-full h-12 pl-11 pr-12 rounded-xl border-2 border-[#EEEEEE] bg-white text-[0.88rem] text-[#0F0F0F] font-medium outline-none focus:border-[#E8A317] transition-colors duration-200"
+                                    className="w-full h-12 pl-11 pr-12 rounded-xl border-2 border-[#EEEEEE] bg-white text-[0.88rem] text-[#0F0F0F] font-medium outline-none focus:border-[#16A34A] transition-colors duration-200"
                                     type={showPwd ? 'text' : 'password'}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -151,7 +151,7 @@ export default function AdminLogin() {
                     </form>
 
                     <p className="text-center text-[0.75rem] text-[#C4C4C0] mt-8">
-                        Diamond Pizza & Restaurant Admin Panel
+                        Campus Bites Admin Panel
                     </p>
                 </div>
             </div>

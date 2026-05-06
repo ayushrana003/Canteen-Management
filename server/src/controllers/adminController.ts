@@ -57,9 +57,9 @@ export const getOrders = async (req: Request, res: Response): Promise<void> => {
 const VALID_TRANSITIONS: Record<string, string[]> = {
     'PENDING': ['ACCEPTED', 'CANCELLED'],
     'ACCEPTED': ['PREPARING', 'CANCELLED'],
-    'PREPARING': ['OUT_FOR_DELIVERY', 'CANCELLED'],
-    'OUT_FOR_DELIVERY': ['DELIVERED'],
-    'DELIVERED': [],
+    'PREPARING': ['READY_TO_PICKUP', 'CANCELLED'],
+    'READY_TO_PICKUP': ['PICKED_UP'],
+    'PICKED_UP': [],
     'CANCELLED': [],
 };
 
@@ -135,7 +135,7 @@ export const updateOrderStatus = async (req: Request, res: Response): Promise<vo
             return;
         }
 
-        const VALID_STATUSES = ['ACCEPTED', 'PREPARING', 'OUT_FOR_DELIVERY', 'DELIVERED', 'CANCELLED'];
+        const VALID_STATUSES = ['ACCEPTED', 'PREPARING', 'READY_TO_PICKUP', 'PICKED_UP', 'CANCELLED'];
         if (!VALID_STATUSES.includes(status)) {
             res.status(400).json({ message: `Invalid status. Allowed: ${VALID_STATUSES.join(', ')}` });
             return;
@@ -229,7 +229,7 @@ export const getOrderStats = async (_req: Request, res: Response): Promise<void>
         today.setHours(0, 0, 0, 0);
 
         const todayRevenue = await Order.aggregate([
-            { $match: { createdAt: { $gte: today }, orderStatus: 'DELIVERED', paymentStatus: 'PAID' } },
+            { $match: { createdAt: { $gte: today }, orderStatus: 'PICKED_UP', paymentStatus: 'PAID' } },
             { $group: { _id: null, total: { $sum: '$total' } } }
         ]);
 

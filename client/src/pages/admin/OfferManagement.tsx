@@ -34,13 +34,13 @@ const emptyForm: OfferForm = {
     discountValue: '', minOrderAmount: '', maxDiscount: '',
     validFrom: new Date().toISOString().slice(0, 10),
     validTill: new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10),
-    label: '', headline: '', ctaText: 'Order Now', colorTheme: '#E8A317',
+    label: '', headline: '', ctaText: 'Order Now', colorTheme: '#16A34A',
 };
 
-const THEME_COLORS = ['#E8A317', '#DC2626', '#2563EB', '#16A34A', '#7C3AED', '#EA580C'];
+const THEME_COLORS = ['#16A34A', '#DC2626', '#2563EB', '#16A34A', '#7C3AED', '#EA580C'];
 
 // Input style constant
-const INPUT_CLS = "w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors";
+const INPUT_CLS = "w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors";
 
 export default function OfferManagement() {
     const [offers, setOffers] = useState<IOffer[]>([]);
@@ -84,7 +84,7 @@ export default function OfferManagement() {
             label: offer.label || '',
             headline: offer.headline || '',
             ctaText: offer.ctaText || 'Order Now',
-            colorTheme: offer.colorTheme || '#E8A317',
+            colorTheme: offer.colorTheme || '#16A34A',
         });
         setEditingId(offer._id);
         setShowLandingFields(!!(offer.label || offer.headline));
@@ -165,7 +165,7 @@ export default function OfferManagement() {
                     <button
                         onClick={openCreate}
                         disabled={offers.length >= MAX_OFFERS}
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#E8A317] text-white font-bold text-[0.85rem] border-none cursor-pointer hover:bg-[#D49516] transition-colors shadow-[0_2px_12px_rgba(232,163,23,0.25)] disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#16A34A] text-white font-bold text-[0.85rem] border-none cursor-pointer hover:bg-[#15803D] transition-colors shadow-[0_2px_12px_rgba(22,163,74,0.25)] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         <Plus size={18} /> New Coupon
                     </button>
@@ -173,10 +173,10 @@ export default function OfferManagement() {
             />
 
             {offers.length >= MAX_OFFERS && (
-                <AdminCard className="mb-5 !border-[#FCD34D] !bg-[#FFFBEB]">
+                <AdminCard className="mb-5 !border-[#86EFAC] !bg-[#ECFDF5]">
                     <div className="flex items-center gap-3">
-                        <AlertTriangle size={18} className="text-[#D97706] shrink-0" />
-                        <span className="text-[0.84rem] text-[#92400E] font-medium">
+                        <AlertTriangle size={18} className="text-[#15803D] shrink-0" />
+                        <span className="text-[0.84rem] text-[#166534] font-medium">
                             Maximum of {MAX_OFFERS} coupons reached. Delete an existing one to add a new one.
                         </span>
                     </div>
@@ -198,7 +198,7 @@ export default function OfferManagement() {
                     {offers.map((offer) => {
                         const expired = new Date(offer.validTill) < new Date();
                         const isActive = (offer as any).isActive !== false;
-                        const themeColor = offer.colorTheme || '#E8A317';
+                        const themeColor = offer.colorTheme || '#16A34A';
                         const dt = (offer.discountType || 'FLAT').toUpperCase();
 
                         return (
@@ -327,18 +327,18 @@ export default function OfferManagement() {
                                             onClick={() => set('discountType', 'FLAT')}
                                             className="relative rounded-2xl border-2 p-4 text-left cursor-pointer transition-all"
                                             style={{
-                                                borderColor: form.discountType === 'FLAT' ? '#E8A317' : '#EEEEEE',
-                                                background: form.discountType === 'FLAT' ? '#FFFBF0' : 'white',
+                                                borderColor: form.discountType === 'FLAT' ? '#16A34A' : '#EEEEEE',
+                                                background: form.discountType === 'FLAT' ? '#ECFDF5' : 'white',
                                             }}
                                         >
                                             <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-2"
-                                                 style={{ background: form.discountType === 'FLAT' ? '#E8A317' : '#F5F5F3', color: form.discountType === 'FLAT' ? 'white' : '#8E8E8E' }}>
+                                                 style={{ background: form.discountType === 'FLAT' ? '#16A34A' : '#F5F5F3', color: form.discountType === 'FLAT' ? 'white' : '#8E8E8E' }}>
                                                 <IndianRupee size={20} />
                                             </div>
                                             <p className="font-bold text-[0.9rem] text-[#0F0F0F]">Flat Coupon</p>
                                             <p className="text-[0.72rem] text-[#8E8E8E] mt-0.5">Fixed ₹ amount off</p>
                                             {form.discountType === 'FLAT' && (
-                                                <div className="absolute top-3 right-3 w-5 h-5 rounded-full bg-[#E8A317] flex items-center justify-center">
+                                                <div className="absolute top-3 right-3 w-5 h-5 rounded-full bg-[#16A34A] flex items-center justify-center">
                                                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                                                 </div>
                                             )}
@@ -370,9 +370,9 @@ export default function OfferManagement() {
                                 </div>
 
                                 {/* Live preview chip */}
-                                <div className="flex items-center gap-2 px-3 py-2 rounded-xl border border-dashed border-[#E8A317] bg-[#FFFBF0]">
-                                    <BadgePercent size={16} className="text-[#E8A317] shrink-0" />
-                                    <span className="font-outfit font-bold text-[0.9rem] text-[#E8A317]">{discountPreview}</span>
+                                <div className="flex items-center gap-2 px-3 py-2 rounded-xl border border-dashed border-[#16A34A] bg-[#ECFDF5]">
+                                    <BadgePercent size={16} className="text-[#16A34A] shrink-0" />
+                                    <span className="font-outfit font-bold text-[0.9rem] text-[#16A34A]">{discountPreview}</span>
                                     {Number(form.minOrderAmount) > 0 && (
                                         <span className="text-[0.72rem] text-[#8E8E8E] ml-auto">on ₹{form.minOrderAmount}+</span>
                                     )}
@@ -478,7 +478,7 @@ export default function OfferManagement() {
                             <button
                                 onClick={handleSave}
                                 disabled={saving}
-                                className="w-full h-11 rounded-xl bg-[#E8A317] text-white font-bold text-[0.85rem] border-none cursor-pointer flex items-center justify-center gap-2 hover:bg-[#D49516] transition-colors disabled:opacity-50"
+                                className="w-full h-11 rounded-xl bg-[#16A34A] text-white font-bold text-[0.85rem] border-none cursor-pointer flex items-center justify-center gap-2 hover:bg-[#15803D] transition-colors disabled:opacity-50"
                             >
                                 {saving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}
                                 {editingId ? 'Update Coupon' : 'Create Coupon'}

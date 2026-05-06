@@ -68,7 +68,7 @@ export default function Users() {
                 <div className="relative max-w-[360px]">
                     <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#C4C4C0]" />
                     <input
-                        className="w-full h-10 pl-10 pr-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.82rem] outline-none focus:border-[#E8A317] transition-colors"
+                        className="w-full h-10 pl-10 pr-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.82rem] outline-none focus:border-[#16A34A] transition-colors"
                         type="text"
                         placeholder="Search by name or phone..."
                         value={searchInput}
@@ -138,7 +138,7 @@ export default function Users() {
                                                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-[0.78rem] font-semibold cursor-pointer transition-colors ${
                                                         user.isCODBlocked
                                                             ? 'border-[#16A34A] text-[#16A34A] bg-[#F0FDF4] hover:bg-[#DCFCE7]'
-                                                            : 'border-[#D97706] text-[#D97706] bg-[#FFFBEB] hover:bg-[#FEF3C7]'
+                                                            : 'border-[#15803D] text-[#15803D] bg-[#ECFDF5] hover:bg-[#DCFCE7]'
                                                     }`}
                                                 >
                                                     <Banknote size={13} />
@@ -212,7 +212,7 @@ export default function Users() {
                                 className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl border text-[0.78rem] font-semibold cursor-pointer transition-colors ${
                                     user.isCODBlocked
                                         ? 'border-[#16A34A] text-[#16A34A] bg-[#F0FDF4]'
-                                        : 'border-[#D97706] text-[#D97706] bg-[#FFFBEB]'
+                                        : 'border-[#15803D] text-[#15803D] bg-[#ECFDF5]'
                                 }`}
                             >
                                 <Banknote size={13} />

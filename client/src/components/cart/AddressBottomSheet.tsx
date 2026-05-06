@@ -321,15 +321,15 @@ export default function AddressBottomSheet({ addresses, selectedId, onSelect, on
                                         style={{
                                             display: 'flex', alignItems: 'flex-start', gap: '0.75rem',
                                             padding: '0.85rem 1rem', borderRadius: 14, textAlign: 'left',
-                                            border: `2px solid ${active ? '#E8A317' : '#EEEEEE'}`,
-                                            background: active ? '#FFFBF0' : 'white',
+                                            border: `2px solid ${active ? '#16A34A' : '#EEEEEE'}`,
+                                            background: active ? '#ECFDF5' : 'white',
                                             cursor: 'pointer', width: '100%',
                                             transition: 'all 0.15s',
                                         }}
                                     >
                                         <span style={{
                                             width: 32, height: 32, borderRadius: 10,
-                                            background: active ? '#E8A317' : '#F7F7F5',
+                                            background: active ? '#16A34A' : '#F7F7F5',
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             color: active ? 'white' : '#8E8E8E', flexShrink: 0,
                                         }}>
@@ -355,7 +355,7 @@ export default function AddressBottomSheet({ addresses, selectedId, onSelect, on
                                             )}
                                         </div>
                                         {active && (
-                                            <span style={{ color: '#E8A317', flexShrink: 0, marginTop: 6 }}>
+                                            <span style={{ color: '#16A34A', flexShrink: 0, marginTop: 6 }}>
                                                 <Check size={18} strokeWidth={3} />
                                             </span>
                                         )}
@@ -370,7 +370,7 @@ export default function AddressBottomSheet({ addresses, selectedId, onSelect, on
                                     display: 'flex', alignItems: 'center', gap: '0.5rem',
                                     padding: '0.8rem 1rem', borderRadius: 14,
                                     border: '2px dashed #D4D4D0', background: '#FAFAF8',
-                                    cursor: 'pointer', width: '100%', color: '#E8A317',
+                                    cursor: 'pointer', width: '100%', color: '#16A34A',
                                 }}
                             >
                                 <Plus size={16} />
@@ -424,13 +424,13 @@ export default function AddressBottomSheet({ addresses, selectedId, onSelect, on
                             {/* Instructions to reset browser permission */}
                             <div style={{
                                 marginTop: '0.75rem', padding: '0.65rem 0.85rem', borderRadius: 12,
-                                background: '#FFFBEB', border: '1px solid #FDE68A',
+                                background: '#ECFDF5', border: '1px solid #A7F3D0',
                                 textAlign: 'left', width: '100%',
                             }}>
-                                <p style={{ fontSize: '0.72rem', fontWeight: 700, color: '#92400E', marginBottom: 4 }}>
+                                <p style={{ fontSize: '0.72rem', fontWeight: 700, color: '#166534', marginBottom: 4 }}>
                                     💡 How to enable location:
                                 </p>
-                                <ol style={{ fontSize: '0.7rem', color: '#78350F', lineHeight: 1.6, margin: 0, paddingLeft: '1.1rem' }}>
+                                <ol style={{ fontSize: '0.7rem', color: '#166534', lineHeight: 1.6, margin: 0, paddingLeft: '1.1rem' }}>
                                     <li>Click the 🔒 lock icon in your browser's address bar</li>
                                     <li>Find <b>Location</b> and change it to <b>Allow</b></li>
                                     <li>Refresh the page and try again</li>
@@ -442,7 +442,7 @@ export default function AddressBottomSheet({ addresses, selectedId, onSelect, on
                                     onClick={handleRetryGps}
                                     style={{
                                         flex: 1, padding: '0.7rem', borderRadius: 12,
-                                        border: 'none', background: '#E8A317', color: 'white',
+                                        border: 'none', background: '#16A34A', color: 'white',
                                         fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                                     }}
@@ -570,9 +570,9 @@ export default function AddressBottomSheet({ addresses, selectedId, onSelect, on
                                                 style={{
                                                     display: 'flex', alignItems: 'center', gap: 5,
                                                     padding: '0.4rem 0.75rem', borderRadius: 8,
-                                                    border: `1.5px solid ${active ? '#E8A317' : '#E0E0DC'}`,
-                                                    background: active ? '#FFFBF0' : 'white',
-                                                    color: active ? '#CB8D10' : '#4A4A4A',
+                                                    border: `1.5px solid ${active ? '#16A34A' : '#E0E0DC'}`,
+                                                    background: active ? '#ECFDF5' : 'white',
+                                                    color: active ? '#15803D' : '#4A4A4A',
                                                     fontWeight: 600, fontSize: '0.8rem', cursor: 'pointer',
                                                 }}
                                             >
@@ -636,7 +636,7 @@ export default function AddressBottomSheet({ addresses, selectedId, onSelect, on
                                 disabled={saving}
                                 style={{
                                     width: '100%', padding: '0.75rem', borderRadius: 14,
-                                    border: 'none', background: '#E8A317', color: 'white',
+                                    border: 'none', background: '#16A34A', color: 'white',
                                     fontWeight: 800, fontSize: '0.9rem', cursor: saving ? 'wait' : 'pointer',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                                     marginTop: '0.25rem',

@@ -75,8 +75,8 @@ export default function CategoryFAB({ categories, activeCat, onSelect }: Categor
                                 onClick={() => handleSelect(cat)}
                                 className="w-full text-left px-3.5 py-2.5 rounded-xl text-[0.84rem] font-semibold transition-colors cursor-pointer border-none"
                                 style={{
-                                    background: isActive ? '#FFFBF0' : 'transparent',
-                                    color: isActive ? '#E8A317' : '#4A4A4A',
+                                    background: isActive ? '#ECFDF5' : 'transparent',
+                                    color: isActive ? '#16A34A' : '#4A4A4A',
                                     fontFamily: 'Inter, sans-serif',
                                 }}
                             >
@@ -102,13 +102,13 @@ export default function CategoryFAB({ categories, activeCat, onSelect }: Categor
                     paddingRight: 16,
                     borderRadius: 9999,
                     border: 'none',
-                    background: 'linear-gradient(135deg, #E8A317 0%, #F0B429 100%)',
+                    background: 'linear-gradient(135deg, #0F7A49 0%, #16A34A 48%, #34D399 100%)',
                     color: 'white',
                     display: 'flex',
                     alignItems: 'center',
                     gap: 8,
                     cursor: 'pointer',
-                    boxShadow: '0 4px 16px rgba(232,163,23,0.4), 0 2px 6px rgba(0,0,0,0.1)',
+                    boxShadow: '0 4px 16px rgba(22,163,74,0.4), 0 2px 6px rgba(0,0,0,0.1)',
                     animation: 'scaleIn 0.25s cubic-bezier(0.22, 0.61, 0.36, 1)',
                     whiteSpace: 'nowrap',
                 }}

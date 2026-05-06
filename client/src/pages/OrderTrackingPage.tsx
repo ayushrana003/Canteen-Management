@@ -25,16 +25,16 @@ const STATUS_STEPS: StatusStep[] = [
     { key: 'PENDING', label: 'Order Placed', mobileLabel: 'Placed', icon: ClipboardList },
     { key: 'ACCEPTED', label: 'Accepted', mobileLabel: 'Accepted', icon: CheckCircle2 },
     { key: 'PREPARING', label: 'Preparing', mobileLabel: 'Preparing', icon: UtensilsCrossed },
-    { key: 'OUT_FOR_DELIVERY', label: 'On the Way', mobileLabel: 'On Way', icon: Bike },
-    { key: 'DELIVERED', label: 'Delivered', mobileLabel: 'Delivered', icon: Home },
+    { key: 'READY_TO_PICKUP', label: 'Ready to Pickup', mobileLabel: 'Ready', icon: Bike },
+    { key: 'PICKED_UP', label: 'Picked Up', mobileLabel: 'Picked Up', icon: Home },
 ];
 
 const STATUS_HEADINGS: Record<string, string> = {
     PENDING: 'Waiting for confirmation...',
     ACCEPTED: 'Restaurant accepted your order!',
     PREPARING: 'Your food is being prepared',
-    OUT_FOR_DELIVERY: 'Your order is on the way!',
-    DELIVERED: 'Enjoy your meal!',
+    READY_TO_PICKUP: 'Your order is ready to pickup!',
+    PICKED_UP: 'Order picked up!',
     CANCELLED: 'Order Cancelled',
 };
 
@@ -42,8 +42,8 @@ const STATUS_SUBTEXT: Record<string, string> = {
     PENDING: 'The restaurant will confirm shortly',
     ACCEPTED: 'Your food will be ready soon',
     PREPARING: 'Almost there, hang tight!',
-    OUT_FOR_DELIVERY: 'Rider is heading to your location',
-    DELIVERED: 'We hope you loved it!',
+    READY_TO_PICKUP: 'Please collect your order',
+    PICKED_UP: 'Thanks for ordering',
     CANCELLED: 'This order has been cancelled',
 };
 
@@ -184,7 +184,7 @@ export default function OrderTrackingPage() {
 
     const currentStepIdx = STATUS_STEPS.findIndex((s) => s.key === currentOrder.orderStatus);
     const isCancelled = currentOrder.orderStatus === 'CANCELLED';
-    const isDelivered = currentOrder.orderStatus === 'DELIVERED';
+    const isDelivered = currentOrder.orderStatus === 'PICKED_UP';
     const heading = STATUS_HEADINGS[currentOrder.orderStatus] || 'Tracking your order';
     const subtext = STATUS_SUBTEXT[currentOrder.orderStatus] || '';
 

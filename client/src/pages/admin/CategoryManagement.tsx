@@ -16,14 +16,14 @@ const ICON_OPTIONS = [
 ];
 
 const COLOR_PRESETS = [
-    { label: 'Amber', bg: '#FFFCF5', border: '#F0CA5A', color: '#9A7209', iconBg: '#FFFBF0' },
+    { label: 'Emerald', bg: '#F0FDF4', border: '#86EFAC', color: '#166534', iconBg: '#ECFDF5' },
     { label: 'Green', bg: '#F0FAF4', border: '#86EFAC', color: '#16A34A', iconBg: '#DCFCE7' },
     { label: 'Pink', bg: '#FDF2F8', border: '#F0ABFC', color: '#A21CAF', iconBg: '#FAE8FF' },
     { label: 'Blue', bg: '#EFF6FF', border: '#93C5FD', color: '#2563EB', iconBg: '#DBEAFE' },
     { label: 'Orange', bg: '#FFF7ED', border: '#FDBA74', color: '#EA580C', iconBg: '#FFEDD5' },
     { label: 'Purple', bg: '#F5F3FF', border: '#C4B5FD', color: '#7C3AED', iconBg: '#EDE9FE' },
     { label: 'Teal', bg: '#ECFDF5', border: '#6EE7B7', color: '#059669', iconBg: '#D1FAE5' },
-    { label: 'Yellow', bg: '#FFFBEB', border: '#FCD34D', color: '#D97706', iconBg: '#FEF3C7' },
+    { label: 'Lime', bg: '#F7FEE7', border: '#BEF264', color: '#4D7C0F', iconBg: '#ECFCCB' },
 ];
 
 interface CategoryForm {
@@ -112,7 +112,7 @@ export default function CategoryManagement() {
                 actions={
                     <button
                         onClick={openCreate}
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#E8A317] text-white font-bold text-[0.85rem] border-none cursor-pointer hover:bg-[#D49516] transition-colors shadow-[0_2px_12px_rgba(232,163,23,0.25)]"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#16A34A] text-white font-bold text-[0.85rem] border-none cursor-pointer hover:bg-[#15803D] transition-colors shadow-[0_2px_12px_rgba(22,163,74,0.25)]"
                     >
                         <Plus size={18} /> Add Category
                     </button>
@@ -209,7 +209,7 @@ export default function CategoryManagement() {
                             <div>
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Name</label>
                                 <input
-                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     value={form.name}
                                     onChange={e => update('name', e.target.value)}
                                     placeholder="e.g. Pizzas"
@@ -227,7 +227,7 @@ export default function CategoryManagement() {
                                             onClick={() => update('icon', ic)}
                                             className={`px-3 py-1.5 rounded-lg text-[0.75rem] font-medium border cursor-pointer transition-all ${
                                                 form.icon === ic
-                                                    ? 'bg-[#FFFBF0] border-[#E8A317] text-[#E8A317]'
+                                                    ? 'bg-[#ECFDF5] border-[#16A34A] text-[#16A34A]'
                                                     : 'bg-white border-[#EEEEEE] text-[#4A4A4A] hover:bg-[#F5F5F3]'
                                             }`}
                                         >
@@ -269,7 +269,7 @@ export default function CategoryManagement() {
                             <div>
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Display Order</label>
                                 <input
-                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     type="number"
                                     min={0}
                                     value={form.displayOrder}
@@ -314,7 +314,7 @@ export default function CategoryManagement() {
                             <button
                                 onClick={handleSave}
                                 disabled={saving}
-                                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#E8A317] text-white font-bold text-[0.85rem] border-none cursor-pointer hover:bg-[#D49516] transition-colors disabled:opacity-50"
+                                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#16A34A] text-white font-bold text-[0.85rem] border-none cursor-pointer hover:bg-[#15803D] transition-colors disabled:opacity-50"
                             >
                                 {saving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}
                                 {saving ? 'Saving...' : 'Save'}

@@ -264,8 +264,8 @@ export default function LoginModal({ onClose }: LoginModalProps) {
                     <div
                         className="w-16 h-16 rounded-2xl flex items-center justify-center text-white mx-auto mb-4"
                         style={{
-                            background: 'linear-gradient(135deg, #E8A317 0%, #F0B429 100%)',
-                            boxShadow: '0 4px 16px rgba(232,163,23,0.25)',
+                            background: 'linear-gradient(135deg, #0F7A49 0%, #16A34A 48%, #34D399 100%)',
+                            boxShadow: '0 4px 16px rgba(22,163,74,0.25)',
                         }}
                     >
                         <ChefHat size={30} />
@@ -355,7 +355,7 @@ export default function LoginModal({ onClose }: LoginModalProps) {
                                 <button
                                     type="button"
                                     onClick={handleResendOTP}
-                                    className="bg-none border-none text-[#E8A317] font-semibold cursor-pointer text-[0.9rem] hover:underline"
+                                    className="bg-none border-none text-[#16A34A] font-semibold cursor-pointer text-[0.9rem] hover:underline"
                                     disabled={loading}
                                 >
                                     Resend OTP

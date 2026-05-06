@@ -155,13 +155,13 @@ export default function Settings() {
                 {activeTab === 'general' && (
                     <AdminCard>
                         <h3 className="font-outfit font-bold text-[1rem] mb-5 flex items-center gap-2.5 text-[#0F0F0F]">
-                            <Store size={18} className="text-[#E8A317]" /> General Information
+                            <Store size={18} className="text-[#16A34A]" /> General Information
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Restaurant Name</label>
                                 <input
-                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     value={form.name}
                                     onChange={(e) => set('name', e.target.value)}
                                 />
@@ -169,7 +169,7 @@ export default function Settings() {
                             <div>
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Phone</label>
                                 <input
-                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     type="tel"
                                     value={form.phone}
                                     onChange={(e) => set('phone', e.target.value)}
@@ -178,7 +178,7 @@ export default function Settings() {
                             <div className="md:col-span-2">
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Description</label>
                                 <textarea
-                                    className="w-full px-4 py-3 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors resize-y"
+                                    className="w-full px-4 py-3 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors resize-y"
                                     rows={3}
                                     value={form.description}
                                     onChange={(e) => set('description', e.target.value)}
@@ -187,7 +187,7 @@ export default function Settings() {
                             <div className="md:col-span-2">
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Address</label>
                                 <input
-                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     value={form.addressLine}
                                     onChange={(e) => set('addressLine', e.target.value)}
                                 />
@@ -206,7 +206,7 @@ export default function Settings() {
                             <div>
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Delivery Radius (km)</label>
                                 <input
-                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     type="number"
                                     min={1}
                                     value={form.deliveryRadius}
@@ -216,7 +216,7 @@ export default function Settings() {
                             <div>
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Min Order (₹)</label>
                                 <input
-                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     type="number"
                                     min={0}
                                     value={form.minOrderAmount}
@@ -226,7 +226,7 @@ export default function Settings() {
                             <div>
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Avg Prep Time (min)</label>
                                 <input
-                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     type="number"
                                     min={5}
                                     value={form.avgPreparationTime}
@@ -242,7 +242,7 @@ export default function Settings() {
                                 <div>
                                     <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Latitude</label>
                                     <input
-                                        className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                        className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                         type="number"
                                         step="any"
                                         value={form.lat}
@@ -252,7 +252,7 @@ export default function Settings() {
                                 <div>
                                     <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Longitude</label>
                                     <input
-                                        className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                        className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                         type="number"
                                         step="any"
                                         value={form.lng}
@@ -274,7 +274,7 @@ export default function Settings() {
                             <div>
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Opens at</label>
                                 <input
-                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     type="time"
                                     value={form.openHour}
                                     onChange={(e) => set('openHour', e.target.value)}
@@ -283,7 +283,7 @@ export default function Settings() {
                             <div>
                                 <label className="block font-semibold text-[0.8rem] text-[#4A4A4A] mb-1.5">Closes at</label>
                                 <input
-                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#E8A317] transition-colors"
+                                    className="w-full h-10 px-4 rounded-xl border border-[#EEEEEE] bg-white text-[0.85rem] outline-none focus:border-[#16A34A] transition-colors"
                                     type="time"
                                     value={form.closeHour}
                                     onChange={(e) => set('closeHour', e.target.value)}
@@ -327,7 +327,7 @@ export default function Settings() {
                 {/* Save Button */}
                 <button
                     type="submit"
-                    className="mt-5 flex items-center gap-2 px-6 py-3 rounded-xl bg-[#E8A317] text-white font-bold text-[0.85rem] border-none cursor-pointer hover:bg-[#D49516] transition-colors shadow-[0_2px_12px_rgba(232,163,23,0.25)] disabled:opacity-50"
+                    className="mt-5 flex items-center gap-2 px-6 py-3 rounded-xl bg-[#16A34A] text-white font-bold text-[0.85rem] border-none cursor-pointer hover:bg-[#15803D] transition-colors shadow-[0_2px_12px_rgba(22,163,74,0.25)] disabled:opacity-50"
                     disabled={saving}
                 >
                     {saving ? <Loader2 size={18} className="animate-spin" /> : <Save size={18} />}

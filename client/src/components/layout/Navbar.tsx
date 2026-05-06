@@ -52,14 +52,14 @@ export default function Navbar() {
                         <span
                             className="w-8 h-8 rounded-xl flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-4deg]"
                             style={{
-                                background: 'linear-gradient(135deg, #E8A317, #F0B429)',
-                                boxShadow: '0 2px 10px rgba(232,163,23,0.25)',
+                                background: 'linear-gradient(135deg, #0F7A49, #16A34A, #34D399)',
+                                boxShadow: '0 2px 10px rgba(22,163,74,0.25)',
                             }}
                         >
                             <ChefHat size={18} />
                         </span>
                         <span className="font-outfit font-extrabold text-[1.1rem] text-[#0F0F0F] tracking-[-0.02em]">
-                            Diamond<span className="text-[#E8A317]">Pizza</span>
+                            Campus<span className="text-[#16A34A]">Bites</span>
                         </span>
                     </Link>
 
@@ -72,8 +72,8 @@ export default function Navbar() {
                                 className="px-4 py-[0.45rem] rounded-lg font-ui text-[0.875rem] no-underline transition-all duration-250"
                                 style={{
                                     fontWeight: active(l.to) ? 700 : 500,
-                                    color: active(l.to) ? '#E8A317' : '#4A4A4A',
-                                    background: active(l.to) ? 'var(--amber-light)' : 'transparent',
+                                    color: active(l.to) ? '#16A34A' : '#4A4A4A',
+                                    background: active(l.to) ? 'var(--green-light)' : 'transparent',
                                 }}
                                 onMouseEnter={(e) => { if (!active(l.to)) { e.currentTarget.style.color = '#0F0F0F'; e.currentTarget.style.background = '#F7F7F5'; } }}
                                 onMouseLeave={(e) => { if (!active(l.to)) { e.currentTarget.style.color = '#4A4A4A'; e.currentTarget.style.background = 'transparent'; } }}
@@ -92,9 +92,9 @@ export default function Navbar() {
                                 onClick={() => { setProfileOpen(true); setMenuOpen(false); }}
                                 className="w-[40px] h-[40px] rounded-xl flex items-center justify-center shrink-0 cursor-pointer transition-all duration-250 font-ui font-extrabold text-[0.9rem]"
                                 style={{
-                                    background: 'linear-gradient(135deg, #FFFBF0, #FFE4A3)',
-                                    border: '1.5px solid #F0CA5A',
-                                    color: '#9A7209',
+                                    background: 'linear-gradient(135deg, #ECFDF5, #BBF7D0)',
+                                    border: '1.5px solid #86EFAC',
+                                    color: '#166534',
                                 }}
                             >
                                 {user?.name ? user.name[0].toUpperCase() : <User size={18} />}
@@ -104,7 +104,7 @@ export default function Navbar() {
                                 onClick={() => setShowLogin(true)}
                                 className="w-[40px] h-[40px] rounded-xl flex items-center justify-center bg-transparent border-[1.5px] border-[#E0E0DC] text-[#4A4A4A] shrink-0 transition-all duration-250"
                                 title="Sign In"
-                                onMouseEnter={(e) => { const el = e.currentTarget; el.style.borderColor = '#E8A317'; el.style.background = '#FFFBF0'; el.style.color = '#E8A317'; }}
+                                onMouseEnter={(e) => { const el = e.currentTarget; el.style.borderColor = '#16A34A'; el.style.background = '#ECFDF5'; el.style.color = '#16A34A'; }}
                                 onMouseLeave={(e) => { const el = e.currentTarget; el.style.borderColor = '#E0E0DC'; el.style.background = 'transparent'; el.style.color = '#4A4A4A'; }}
                             >
                                 <User size={18} />
@@ -158,12 +158,12 @@ export default function Navbar() {
                             <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 no-underline">
                                 <span
                                     className="w-8 h-8 rounded-xl flex items-center justify-center text-white"
-                                    style={{ background: 'linear-gradient(135deg, #E8A317, #F0B429)' }}
+                                    style={{ background: 'linear-gradient(135deg, #0F7A49, #16A34A, #34D399)' }}
                                 >
                                     <ChefHat size={18} />
                                 </span>
                                 <span className="font-outfit font-extrabold text-[1.1rem] text-[#0F0F0F] tracking-[-0.02em]">
-                                    Diamond<span className="text-[#E8A317]">Pizza</span>
+                                    Campus<span className="text-[#16A34A]">Bites</span>
                                 </span>
                             </Link>
                             <button
@@ -184,8 +184,8 @@ export default function Navbar() {
                                 className="flex items-center py-3 px-3 font-ui text-[0.95rem] no-underline rounded-lg transition-colors duration-150"
                                 style={{
                                     fontWeight: active(l.to) ? 700 : 500,
-                                    color: active(l.to) ? '#E8A317' : '#0F0F0F',
-                                    background: active(l.to) ? '#FFFBF0' : 'transparent',
+                                    color: active(l.to) ? '#16A34A' : '#0F0F0F',
+                                    background: active(l.to) ? '#ECFDF5' : 'transparent',
                                 }}
                             >
                                 {l.label}
@@ -196,9 +196,9 @@ export default function Navbar() {
                                 onClick={() => { setShowLogin(true); setMenuOpen(false); }}
                                 className="mt-2 w-full py-[0.75rem] rounded-xl font-bold text-[0.875rem] cursor-pointer font-ui flex items-center justify-center gap-2 transition-colors duration-150"
                                 style={{
-                                    background: 'linear-gradient(135deg, #FFFBF0, #FFE4A3)',
-                                    border: '1.5px solid #F0CA5A',
-                                    color: '#9A7209',
+                                    background: 'linear-gradient(135deg, #ECFDF5, #BBF7D0)',
+                                    border: '1.5px solid #86EFAC',
+                                    color: '#166534',
                                 }}
                             >
                                 <User size={18} /> Sign In
@@ -222,12 +222,12 @@ export default function Navbar() {
                         width: 56,
                         height: 56,
                         borderRadius: '50%',
-                        background: 'linear-gradient(135deg, #E8A317, #F0B429)',
+                        background: 'linear-gradient(135deg, #0F7A49, #16A34A, #34D399)',
                         color: 'white',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        boxShadow: '0 6px 20px rgba(232,163,23,0.5), 0 2px 8px rgba(0,0,0,0.12)',
+                        boxShadow: '0 6px 20px rgba(22,163,74,0.5), 0 2px 8px rgba(0,0,0,0.12)',
                         textDecoration: 'none',
                         animation: 'scaleIn 0.25s var(--ease-spring)',
                     }}

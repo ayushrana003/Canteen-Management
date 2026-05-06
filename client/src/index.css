@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   DIAMOND PIZZA — Premium Design System (Tailwind v4)
+   Campus Bites — Premium Design System (Tailwind v4)
    Font: DM Sans (body/UI) · Outfit (headings) · Inter (UI labels)
-   Palette: Rich Amber · Pure White · Warm Neutral
+   Palette: Emerald Green · Pure White · Warm Neutral
 ───────────────────────────────────────────────────────────────────────────── */
 
 /* ── Tailwind v4 theme tokens (CSS-first config) ────────────────────────── */
 @theme {
   /* Colors */
-  --color-amber: #E8A317;
-  --color-amber-light: #FFFBF0;
-  --color-amber-border: #F0CA5A;
+  --color-brand: #16A34A;
+  --color-brand-light: #ECFDF5;
+  --color-brand-border: #86EFAC;
+  --color-brand-bright: #34D399;
   --color-dark: #0F0F0F;
   --color-dark-2: #1A1A1A;
   --color-dark-3: #2D2D2D;
@@ -49,11 +50,17 @@
 
 /* ── CSS custom properties ────────────────────────────────────────────────── */
 :root {
-  --amber: #E8A317;
-  --amber-hover: #D09215;
-  --amber-light: #FFFBF0;
-  --amber-border: #F0CA5A;
-  --amber-glow: rgba(232, 163, 23, 0.12);
+  --green: #16A34A;
+  --green-hover: #15803D;
+  --green-dark: #0F7A49;
+  --green-bright: #34D399;
+  --green-light: #ECFDF5;
+  --green-soft: #DCFCE7;
+  --green-border: #86EFAC;
+  --green-glow: rgba(22, 163, 74, 0.14);
+  --theme-gradient: linear-gradient(135deg, #0F7A49 0%, #16A34A 48%, #34D399 100%);
+  --theme-gradient-hover: linear-gradient(135deg, #065F46 0%, #15803D 55%, #22C55E 100%);
+
   --dark: #0F0F0F;
   --dark-2: #1A1A1A;
   --dark-3: #2D2D2D;
@@ -72,14 +79,14 @@
   --color-text-primary: var(--text-1);
   --color-text-secondary: var(--text-2);
   --color-text-muted: var(--text-3);
-  --color-accent: var(--amber);
-  --color-accent-light: var(--amber-light);
+  --color-accent: var(--green);
+  --color-accent-light: var(--green-light);
   --color-success: #16A34A;
   --color-success-bg: #DCFCE7;
   --color-error: #DC2626;
   --color-error-bg: #FEF2F2;
-  --color-warning: #D97706;
-  --color-warning-bg: #FFFBEB;
+  --color-warning: #15803D;
+  --color-warning-bg: #ECFDF5;
 
   /* Radii */
   --r-sm: 8px;
@@ -93,7 +100,7 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 4px 24px rgba(232, 163, 23, 0.15);
+  --shadow-glow: 0 4px 24px rgba(22, 163, 74, 0.18);
 
   /* Transitions */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -257,7 +264,7 @@ button {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #E8A317 0%, #F0B429 100%);
+    background: var(--theme-gradient);
     color: white;
     padding: 0.65rem 1.5rem;
     border-radius: 10px;
@@ -269,18 +276,18 @@ button {
     cursor: pointer;
     transition: all 250ms var(--ease-spring);
     text-decoration: none;
-    box-shadow: 0 2px 8px rgba(232, 163, 23, 0.2);
+    box-shadow: 0 2px 10px rgba(22, 163, 74, 0.22);
   }
 
   .btn-primary:hover {
-    background: linear-gradient(135deg, #D09215 0%, #E8A317 100%);
+    background: var(--theme-gradient-hover);
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(232, 163, 23, 0.3);
+    box-shadow: 0 5px 18px rgba(22, 163, 74, 0.32);
   }
 
   .btn-primary:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(232, 163, 23, 0.2);
+    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.2);
   }
 
   .btn-primary:disabled {
@@ -333,9 +340,9 @@ button {
   }
 
   .btn-outline:hover {
-    border-color: var(--amber);
-    color: var(--amber);
-    background: var(--amber-light);
+    border-color: var(--green);
+    color: var(--green);
+    background: var(--green-light);
   }
 
   /* ─── Input ─── */
@@ -353,8 +360,8 @@ button {
   }
 
   .input:focus {
-    border-color: var(--amber);
-    box-shadow: 0 0 0 3px var(--amber-glow);
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px var(--green-glow);
   }
 
   .input::placeholder {
@@ -376,7 +383,7 @@ button {
 
   .card-hover:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(232, 163, 23, 0.06);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(22, 163, 74, 0.06);
   }
 
   /* ─── Section labels ─── */
@@ -395,7 +402,7 @@ button {
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.14em;
-    color: var(--amber);
+    color: var(--green);
     text-transform: uppercase;
     margin-bottom: 0.5rem;
   }
@@ -418,16 +425,16 @@ button {
   }
 
   .pill:hover {
-    border-color: var(--amber);
-    color: var(--amber);
-    background: var(--amber-light);
+    border-color: var(--green);
+    color: var(--green);
+    background: var(--green-light);
   }
 
   .pill.active {
-    background: var(--amber);
-    border-color: var(--amber);
+    background: var(--theme-gradient);
+    border-color: var(--green);
     color: white;
-    box-shadow: 0 2px 8px rgba(232, 163, 23, 0.25);
+    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.25);
   }
 
   /* ─── Badges ─── */
@@ -480,10 +487,10 @@ button {
   }
 
   .qty-btn:hover {
-    border-color: var(--amber);
-    background: var(--amber);
+    border-color: var(--green);
+    background: var(--theme-gradient);
     color: white;
-    box-shadow: 0 2px 8px rgba(232, 163, 23, 0.2);
+    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.2);
   }
 
   /* ─── Divider ─── */
@@ -532,10 +539,10 @@ button {
   }
 
   .status-step-dot.active {
-    border-color: var(--amber);
-    background: var(--amber);
+    border-color: var(--green);
+    background: var(--theme-gradient);
     color: white;
-    box-shadow: 0 0 0 4px var(--amber-glow);
+    box-shadow: 0 0 0 4px var(--green-glow);
   }
 
   .status-step-dot.done {
@@ -651,7 +658,7 @@ button {
 
 /* ── Focus visible ring ────────────────────────────────────────────────── */
 *:focus-visible {
-  outline: 2px solid var(--amber);
+  outline: 2px solid var(--green);
   outline-offset: 2px;
 }
 

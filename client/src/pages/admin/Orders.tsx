@@ -11,7 +11,7 @@ import { getOrders, type IAdminOrder, type OrderFilters } from '@/services/admin
 import { useAdminContext } from '@/contexts/AdminContext';
 import toast from 'react-hot-toast';
 
-const STATUS_OPTIONS = ['', 'PENDING', 'ACCEPTED', 'PREPARING', 'OUT_FOR_DELIVERY', 'DELIVERED', 'CANCELLED'];
+const STATUS_OPTIONS = ['', 'PENDING', 'ACCEPTED', 'PREPARING', 'READY_TO_PICKUP', 'PICKED_UP', 'CANCELLED'];
 const PAYMENT_OPTIONS = ['', 'COD', 'ONLINE'];
 
 /** Background color based on order status — each status gets its own tint */
@@ -20,8 +20,8 @@ const getRowBg = (status: string): string => {
         case 'PENDING': return '#FFFDE7';        // yellow — unaccepted
         case 'ACCEPTED': return '#EFF6FF';        // blue
         case 'PREPARING': return '#F5F3FF';       // purple
-        case 'OUT_FOR_DELIVERY': return '#FFF7ED'; // orange
-        case 'DELIVERED': return '#F0FDF4';        // green
+        case 'READY_TO_PICKUP': return '#FFF7ED'; // orange
+        case 'PICKED_UP': return '#F0FDF4';        // green
         case 'CANCELLED': return '#FEF2F2';       // red
         default: return 'white';
     }
@@ -146,7 +146,7 @@ export default function Orders() {
                                 ) : orders.map((order) => {
                                     const statusColorMap: Record<string, string> = {
                                         PENDING: '#D97706', ACCEPTED: '#2563EB', PREPARING: '#7C3AED',
-                                        OUT_FOR_DELIVERY: '#EA580C', DELIVERED: '#16A34A', CANCELLED: '#DC2626',
+                                        READY_TO_PICKUP: '#EA580C', PICKED_UP: '#16A34A', CANCELLED: '#DC2626',
                                     };
                                     const isPending = order.orderStatus === 'PENDING';
                                     return (

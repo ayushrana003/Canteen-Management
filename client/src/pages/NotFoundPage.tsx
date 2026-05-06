@@ -7,7 +7,7 @@ export default function NotFoundPage() {
             <div className="text-center max-w-md">
                 <h1
                     className="font-outfit font-black text-[6rem] leading-none mb-2"
-                    style={{ background: 'linear-gradient(135deg, #E8A317, #CB8D10)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+                    style={{ background: 'linear-gradient(135deg, #16A34A, #15803D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
                 >
                     404
                 </h1>

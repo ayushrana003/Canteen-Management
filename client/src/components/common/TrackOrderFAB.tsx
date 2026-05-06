@@ -7,10 +7,10 @@ import { useSocket } from '@/hooks/useSocket';
 import { orderService } from '@/services/orderService';
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; icon: any; pulse: boolean }> = {
-    PENDING: { label: 'Order Placed', color: '#D97706', bg: '#FFFBF0', icon: Clock, pulse: true },
+    PENDING: { label: 'Order Placed', color: '#15803D', bg: '#ECFDF5', icon: Clock, pulse: true },
     ACCEPTED: { label: 'Accepted', color: '#2563EB', bg: '#EFF6FF', icon: CheckCircle2, pulse: true },
     PREPARING: { label: 'Preparing...', color: '#7C3AED', bg: '#F5F3FF', icon: UtensilsCrossed, pulse: true },
-    OUT_FOR_DELIVERY: { label: 'On the way!', color: '#EA580C', bg: '#FFF7ED', icon: Bike, pulse: true },
+    READY_TO_PICKUP: { label: 'Ready to pickup!', color: '#EA580C', bg: '#FFF7ED', icon: Bike, pulse: true },
 };
 
 interface ActiveOrder {
@@ -32,7 +32,7 @@ export default function TrackOrderFAB() {
         try {
             const data = await orderService.getUserOrders(1, 5);
             const active = data.orders.find((o) =>
-                !['DELIVERED', 'CANCELLED'].includes(o.orderStatus)
+                !['PICKED_UP', 'CANCELLED'].includes(o.orderStatus)
             );
             if (active) {
                 setActiveOrder({ _id: active._id, orderId: active.orderId, orderStatus: active.orderStatus });
@@ -56,7 +56,7 @@ export default function TrackOrderFAB() {
             if (!data) return;
             setActiveOrder((prev) => {
                 if (!prev) return prev;
-                if (['DELIVERED', 'CANCELLED'].includes(data.status)) return null;
+                if (['PICKED_UP', 'CANCELLED'].includes(data.status)) return null;
                 return { ...prev, orderStatus: data.status };
             });
         };

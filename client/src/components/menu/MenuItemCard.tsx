@@ -108,10 +108,10 @@ export default function MenuItemCard({ item, compact = false }: MenuItemCardProp
                             <span
                                 className="inline-flex items-center gap-1 px-2 py-[3px] rounded-md text-[0.6rem] font-bold uppercase tracking-wider"
                                 style={{
-                                    background: 'rgba(232,163,23,0.12)',
-                                    color: '#E8A317',
+                                    background: 'rgba(22,163,74,0.12)',
+                                    color: '#16A34A',
                                     backdropFilter: 'blur(4px)',
-                                    border: '1px solid rgba(232,163,23,0.2)',
+                                    border: '1px solid rgba(22,163,74,0.2)',
                                 }}
                             >
                                 <Sparkles size={9} />
@@ -172,7 +172,7 @@ export default function MenuItemCard({ item, compact = false }: MenuItemCardProp
                         {hasCustomizations && (
                             <span
                                 className="ml-1.5 inline-flex items-center gap-0.5 px-1.5 py-[2px] rounded text-[0.55rem] font-bold uppercase tracking-wide"
-                                style={{ background: 'rgba(232,163,23,0.1)', color: '#E8A317', border: '1px solid rgba(232,163,23,0.18)' }}
+                                style={{ background: 'rgba(22,163,74,0.1)', color: '#16A34A', border: '1px solid rgba(22,163,74,0.18)' }}
                             >
                                 <Sparkles size={8} /> Options
                             </span>

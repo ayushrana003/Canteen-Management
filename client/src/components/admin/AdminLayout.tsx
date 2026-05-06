@@ -100,12 +100,12 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
             >
                 {/* Logo */}
                 <div className="flex items-center gap-3 px-5 h-[72px] border-b border-white/8 shrink-0">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#E8A317] to-[#F0B429] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(232,163,23,0.3)]">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0F7A49] via-[#16A34A] to-[#34D399] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(22,163,74,0.3)]">
                         <ChefHat size={20} className="text-white" />
                     </div>
                     {!collapsed && (
                         <span className="font-outfit font-bold text-[1.1rem] tracking-[-0.02em] whitespace-nowrap">
-                            DiamondPizza
+                            CampusBites
                         </span>
                     )}
                 </div>
@@ -119,7 +119,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                             onClick={() => setMobileOpen(false)}
                             className={({ isActive }) =>
                                 `relative flex items-center gap-3 px-3 py-[0.7rem] rounded-xl text-[0.85rem] font-medium transition-all duration-200 no-underline group ${isActive
-                                    ? 'bg-[#E8A317]/12 text-[#F0B429]'
+                                    ? 'bg-[#16A34A]/12 text-[#34D399]'
                                     : 'text-white/50 hover:bg-white/5 hover:text-white/80'
                                 }`
                             }
@@ -127,7 +127,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                             {({ isActive }) => (
                                 <>
                                     {isActive && (
-                                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 rounded-r-full bg-[#E8A317]" />
+                                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 rounded-r-full bg-[#16A34A]" />
                                     )}
                                     <item.icon size={20} className="shrink-0" />
                                     {!collapsed && (
@@ -211,12 +211,12 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                                 {/* Header */}
                                 <div className="flex items-center justify-between px-4 py-3 border-b border-[#F0F0EE] bg-[#FAFAF8]">
                                     <div className="flex items-center gap-2">
-                                        <AlertCircle size={15} className="text-[#D97706]" />
+                                        <AlertCircle size={15} className="text-[#15803D]" />
                                         <span className="text-[0.82rem] font-bold text-[#0F0F0F]">
                                             Unaccepted Orders
                                         </span>
                                         {pendingOrderCount > 0 && (
-                                            <span className="min-w-[20px] h-5 px-1.5 rounded-full bg-[#D97706] text-white text-[0.6rem] font-bold flex items-center justify-center">
+                                            <span className="min-w-[20px] h-5 px-1.5 rounded-full bg-[#15803D] text-white text-[0.6rem] font-bold flex items-center justify-center">
                                                 {pendingOrderCount}
                                             </span>
                                         )}
@@ -256,7 +256,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                                     <div className="border-t border-[#F0F0EE] px-4 py-2.5 bg-[#FAFAF8]">
                                         <button
                                             onClick={() => { setNotifOpen(false); navigate('/admin/orders'); }}
-                                            className="w-full text-center text-[0.75rem] font-semibold text-[#E8A317] hover:text-[#D49516] transition-colors bg-transparent border-none cursor-pointer py-1"
+                                            className="w-full text-center text-[0.75rem] font-semibold text-[#16A34A] hover:text-[#15803D] transition-colors bg-transparent border-none cursor-pointer py-1"
                                         >
                                             View All Orders →
                                         </button>
@@ -272,7 +272,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                             <p className="text-[0.82rem] font-semibold text-[#0F0F0F] leading-tight">{admin?.name || 'Admin'}</p>
                             <p className="text-[0.7rem] text-[#8E8E8E]">{admin?.role || 'OWNER'}</p>
                         </div>
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#E8A317] to-[#F0B429] flex items-center justify-center text-white font-bold text-[0.9rem] shadow-[0_2px_8px_rgba(232,163,23,0.25)]">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0F7A49] via-[#16A34A] to-[#34D399] flex items-center justify-center text-white font-bold text-[0.9rem] shadow-[0_2px_8px_rgba(22,163,74,0.25)]">
                             {(admin?.name || 'A')[0].toUpperCase()}
                         </div>
                     </div>
@@ -293,11 +293,11 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                         zIndex: 9999,
                         display: 'flex', alignItems: 'center', gap: '0.5rem',
                         background: 'linear-gradient(135deg, #1A1714 0%, #111111 100%)',
-                        border: '1.5px solid rgba(232,163,23,0.3)',
+                        border: '1.5px solid rgba(22,163,74,0.3)',
                         borderRadius: 16,
                         padding: '0.6rem 1rem',
                         cursor: 'pointer',
-                        boxShadow: '0 6px 24px rgba(0,0,0,0.18), 0 2px 8px rgba(232,163,23,0.15)',
+                        boxShadow: '0 6px 24px rgba(0,0,0,0.18), 0 2px 8px rgba(22,163,74,0.15)',
                         transition: 'transform 0.2s, box-shadow 0.2s',
                         animation: 'adminFabBlink 2s ease-in-out infinite, adminFabSlideIn 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)',
                         color: 'white',
@@ -305,11 +305,11 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     }}
                     onMouseEnter={(e) => {
                         e.currentTarget.style.transform = 'translateY(-2px)';
-                        e.currentTarget.style.boxShadow = '0 10px 32px rgba(0,0,0,0.22), 0 4px 12px rgba(232,163,23,0.2)';
+                        e.currentTarget.style.boxShadow = '0 10px 32px rgba(0,0,0,0.22), 0 4px 12px rgba(22,163,74,0.2)';
                     }}
                     onMouseLeave={(e) => {
                         e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.boxShadow = '0 6px 24px rgba(0,0,0,0.18), 0 2px 8px rgba(232,163,23,0.15)';
+                        e.currentTarget.style.boxShadow = '0 6px 24px rgba(0,0,0,0.18), 0 2px 8px rgba(22,163,74,0.15)';
                     }}
                 >
                     {/* Pulse dot */}
@@ -323,11 +323,11 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     {/* Count badge */}
                     <span style={{
                         minWidth: 28, height: 28, borderRadius: 10,
-                        background: 'linear-gradient(135deg, #E8A317, #F0B429)',
+                        background: 'linear-gradient(135deg, #0F7A49, #16A34A, #34D399)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: '0.82rem', fontWeight: 800, color: '#fff',
                         flexShrink: 0,
-                        boxShadow: '0 2px 6px rgba(232,163,23,0.3)',
+                        boxShadow: '0 2px 6px rgba(22,163,74,0.3)',
                     }}>
                         {activeOrderCount > 99 ? '99+' : activeOrderCount}
                     </span>
@@ -351,8 +351,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
                     <style>{`
                         @keyframes adminFabBlink {
-                            0%, 100% { border-color: rgba(232,163,23,0.3); }
-                            50% { border-color: rgba(232,163,23,0.7); }
+                            0%, 100% { border-color: rgba(22,163,74,0.3); }
+                            50% { border-color: rgba(22,163,74,0.7); }
                         }
                         @keyframes adminFabSlideIn {
                             from { opacity: 0; transform: translateX(20px) scale(0.9); }
@@ -375,18 +375,18 @@ function NotifOrderRow({ order, onClick }: { order: IAdminOrder; onClick: () => 
     return (
         <button
             onClick={onClick}
-            className="w-full text-left px-4 py-3 hover:bg-[#FFFBF0] transition-colors border-none bg-transparent cursor-pointer border-b border-[#F5F5F3]"
+            className="w-full text-left px-4 py-3 hover:bg-[#ECFDF5] transition-colors border-none bg-transparent cursor-pointer border-b border-[#F5F5F3]"
             style={{ borderBottom: '1px solid #F5F5F3' }}
         >
             <div className="flex items-start justify-between gap-2">
                 <div className="flex items-center gap-2.5 min-w-0">
                     <div style={{
                         width: 32, height: 32, borderRadius: 10,
-                        background: '#FFFBF0', border: '1px solid #FDE68A',
+                        background: '#ECFDF5', border: '1px solid #A7F3D0',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         flexShrink: 0,
                     }}>
-                        <Clock size={14} style={{ color: '#D97706' }} />
+                        <Clock size={14} style={{ color: '#15803D' }} />
                     </div>
                     <div className="min-w-0">
                         <p style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0F0F0F', margin: 0, lineHeight: 1.2 }}>

@@ -68,34 +68,31 @@ export default function LandingPage() {
             <section
                 className="relative overflow-hidden"
                 style={{
-                    background: 'linear-gradient(160deg, #FFFFFF 0%, #FFFEF9 30%, #FFF9E6 60%, #FBBF24 140%)',
+                    background: 'linear-gradient(160deg, #FFFFFF 0%, #F7FFF9 28%, #ECFDF5 62%, #16A34A 140%)',
                     minHeight: 'clamp(400px, 52vh, 520px)',
                 }}
             >
-                <div className="absolute top-[-80px] right-[-80px] w-[300px] h-[300px] rounded-full opacity-[0.08] pointer-events-none" style={{ background: 'radial-gradient(circle, #FBBF24 0%, transparent 70%)' }} />
-                <div className="absolute bottom-[-40px] left-[-60px] w-[200px] h-[200px] rounded-full opacity-[0.06] pointer-events-none" style={{ background: 'radial-gradient(circle, #E8A317 0%, transparent 70%)' }} />
-
                 <div className="container relative z-10 h-full flex items-center" style={{ minHeight: 'clamp(400px, 52vh, 520px)' }}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center w-full py-10 md:py-0">
                         <div className="order-2 md:order-1 text-center md:text-left">
                             <div
                                 className="inline-flex items-center gap-2 px-4 py-[0.35rem] rounded-full mb-6"
-                                style={{ background: 'rgba(232, 163, 23, 0.08)', border: '1px solid rgba(232, 163, 23, 0.15)' }}
+                                style={{ background: 'rgba(22, 163, 74, 0.08)', border: '1px solid rgba(22, 163, 74, 0.15)' }}
                             >
-                                <Sparkles size={14} className="text-[#E8A317]" />
-                                <span className="text-[#9A7209] text-[0.78rem] font-semibold">Freshly Baked, Always</span>
+                                <Sparkles size={14} className="text-[#16A34A]" />
+                                <span className="text-[#166534] text-[0.78rem] font-semibold">Freshly Baked, Always</span>
                             </div>
 
                             <h1
                                 className="font-outfit font-extrabold text-[#0F0F0F] leading-[1.05] tracking-[-0.03em] mb-5"
                                 style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)' }}
                             >
-                                Quality Pizza,<br />
-                                <span className="text-[#E8A317]">Delivered Fast</span>
+                                Quality Food,<br />
+                                <span className="text-[#16A34A]">Prepared Fast</span>
                             </h1>
 
                             <p className="text-[#4A4A4A] text-[clamp(0.88rem,1.7vw,1.05rem)] leading-[1.75] mb-8 max-w-[440px] mx-auto md:mx-0">
-                                Hand-stretched dough, premium mozzarella, and the freshest toppings — prepared by expert chefs and delivered hot to your door.
+                                Hand-stretched dough, premium mozzarella, and the freshest toppings — prepared by expert chefs and Serve hot to you.
                             </p>
 
                             <div className="flex gap-3 flex-wrap justify-center md:justify-start">
@@ -114,7 +111,7 @@ export default function LandingPage() {
                                 alt="Delicious pizza"
                                 className="w-[clamp(220px,50vw,420px)] h-auto drop-shadow-2xl select-none pointer-events-none"
                                 style={{
-                                    filter: 'drop-shadow(0 20px 40px rgba(232,163,23,0.18))',
+                                    filter: 'drop-shadow(0 20px 40px rgba(22,163,74,0.18))',
                                     animation: 'float 4s ease-in-out infinite',
                                 }}
                             />
@@ -122,40 +119,6 @@ export default function LandingPage() {
                     </div>
                 </div>
             </section>
-
-            {/* ── RESTAURANT STATUS STRIP ─────────────────────────────────── */}
-            {restaurant && (
-                <div className="bg-white py-4 border-b border-[#EEEEEE]">
-                    <div className="container flex justify-center gap-[clamp(1.5rem,5vw,3.5rem)] flex-wrap">
-                        {[
-                            { Icon: Check, text: restaurant.isOpen ? 'Open Now' : 'Closed', amber: restaurant.isOpen },
-                            { Icon: Clock, text: `${restaurant.avgPreparationTime} min delivery` },
-                            { Icon: MapPin, text: (typeof restaurant.address === 'string' ? restaurant.address : (restaurant.address as any)?.addressLine ?? 'Noorpur').split(',')[0] },
-                            { Icon: Star, text: `${restaurant.rating ?? '4.8'} rating`, fill: true },
-                        ].map((s, i) => (
-                            <div
-                                key={i}
-                                className="flex items-center gap-[0.45rem] text-[clamp(0.75rem,1.5vw,0.84rem)]"
-                                style={{
-                                    color: s.amber ? '#E8A317' : '#4A4A4A',
-                                    fontWeight: s.amber ? 700 : 500,
-                                }}
-                            >
-                                <span
-                                    className="w-7 h-7 rounded-lg flex items-center justify-center"
-                                    style={{
-                                        background: s.amber ? '#FFFBF0' : '#F7F7F5',
-                                        color: s.amber ? '#E8A317' : '#8E8E8E',
-                                    }}
-                                >
-                                    <s.Icon size={14} fill={s.fill ? 'currentColor' : 'none'} />
-                                </span>
-                                {s.text}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
 
             {/* ── OFFER CARDS (from backend) ─────────────────────────────── */}
             {offers.length > 0 && (
@@ -193,7 +156,7 @@ export default function LandingPage() {
                                             className="h-[7px] rounded-full border-none cursor-pointer p-0 transition-all duration-300"
                                             style={{
                                                 width: i === activeOffer ? 24 : 7,
-                                                background: i === activeOffer ? '#E8A317' : '#D4D4D0',
+                                                background: i === activeOffer ? '#16A34A' : '#D4D4D0',
                                             }}
                                         />
                                     ))}
@@ -231,7 +194,7 @@ export default function LandingPage() {
                                                 padding: 'clamp(1rem,2.5vw,1.4rem) 0.5rem',
                                                 boxShadow: '0 1px 3px rgba(0,0,0,0.03)',
                                             }}
-                                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = cat.colorScheme?.border || '#E8A317'; e.currentTarget.style.boxShadow = `0 8px 24px rgba(0,0,0,0.06)`; }}
+                                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = cat.colorScheme?.border || '#16A34A'; e.currentTarget.style.boxShadow = `0 8px 24px rgba(0,0,0,0.06)`; }}
                                             onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#EEEEEE'; e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.03)'; }}
                                         >
                                             <div
@@ -288,7 +251,7 @@ export default function LandingPage() {
                 <div className="container">
                     <div className="text-center mb-[clamp(2rem,5vw,3.5rem)]">
                         <span className="section-label justify-center">
-                            The DiamondPizza Difference
+                            The CampusBites Difference
                         </span>
                         <h2 className="font-outfit font-extrabold text-[clamp(1.5rem,4vw,2.2rem)] text-[#0F0F0F] tracking-[-0.02em]">
                             Why thousands choose us
@@ -296,9 +259,9 @@ export default function LandingPage() {
                     </div>
                     <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
                         {[
-                            { title: 'Farm-Fresh Daily', desc: 'Hand-stretched dough, premium mozzarella, locally sourced vegetables.', Icon: Heart, iconBg: '#FFFBF0', iconColor: '#E8A317' },
+                            { title: 'Farm-Fresh Daily', desc: 'Hand-stretched dough, premium mozzarella, locally sourced vegetables.', Icon: Heart, iconBg: '#ECFDF5', iconColor: '#16A34A' },
                             { title: `${restaurant?.deliveryTime ?? 30}-Min Delivery`, desc: 'GPS-tracked. Hot and fresh, every single time.', Icon: Clock, iconBg: '#EFF6FF', iconColor: '#2563EB' },
-                            { title: 'Expert Chefs', desc: 'Trained artisans using authentic Italian techniques.', Icon: Star, iconBg: '#FFFBEB', iconColor: '#D97706' },
+                            { title: 'Expert Chefs', desc: 'Trained artisans using authentic Italian techniques.', Icon: Star, iconBg: '#ECFDF5', iconColor: '#15803D' },
                             { title: 'Best for Money', desc: 'Restaurant-quality pizza at everyday prices.', Icon: Tag, iconBg: '#F0FAF4', iconColor: '#16A34A' },
                         ].map((f) => (
                             <div
@@ -330,7 +293,7 @@ export default function LandingPage() {
 
 /* ── Offer Card sub-component ────────────────────────────────────────── */
 const OFFER_THEMES = [
-    { bg: 'linear-gradient(135deg, #FFFCF5 0%, #FFF5E0 100%)', highlight: '#E8A317', border: 'rgba(232,163,23,0.15)', accentBg: 'rgba(232,163,23,0.1)' },
+    { bg: 'linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%)', highlight: '#16A34A', border: 'rgba(22,163,74,0.15)', accentBg: 'rgba(22,163,74,0.1)' },
     { bg: 'linear-gradient(135deg, #F0FAF4 0%, #E8F5E9 100%)', highlight: '#16A34A', border: 'rgba(22,163,74,0.15)', accentBg: 'rgba(22,163,74,0.1)' },
     { bg: 'linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%)', highlight: '#7C3AED', border: 'rgba(124,58,237,0.15)', accentBg: 'rgba(124,58,237,0.1)' }
 ];

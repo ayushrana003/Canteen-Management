@@ -127,8 +127,8 @@ export type OrderStatus =
     | 'PENDING'
     | 'ACCEPTED'
     | 'PREPARING'
-    | 'OUT_FOR_DELIVERY'
-    | 'DELIVERED'
+    | 'READY_TO_PICKUP'
+    | 'PICKED_UP'
     | 'CANCELLED';
 
 export type PaymentMethod = 'COD' | 'ONLINE';

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { X, User, MapPin, Clock, CreditCard, Check, XCircle, Package, Truck, ChefHat, ArrowRight, AlertTriangle, Phone, MessageSquare } from 'lucide-react';
 import { acceptOrder, updateOrderStatus, rejectOrder, type IAdminOrder } from '@/services/adminApi';
 import AdminBadge from '@/components/admin/ui/AdminBadge';
@@ -10,9 +10,9 @@ interface Props {
     onRefresh: () => void;
 }
 
-const STATUS_FLOW = ['PENDING', 'ACCEPTED', 'PREPARING', 'OUT_FOR_DELIVERY', 'DELIVERED'] as const;
+const STATUS_FLOW = ['PENDING', 'ACCEPTED', 'PREPARING', 'READY_TO_PICKUP', 'PICKED_UP'] as const;
 const STATUS_ICONS: Record<string, typeof Package> = {
-    PENDING: Clock, ACCEPTED: Check, PREPARING: ChefHat, OUT_FOR_DELIVERY: Truck, DELIVERED: Package,
+    PENDING: Clock, ACCEPTED: Check, PREPARING: ChefHat, READY_TO_PICKUP: Truck, PICKED_UP: Package,
 };
 
 const PREP_TIMES = [20, 30, 45, 60, 90];
@@ -110,7 +110,7 @@ export default function OrderDetailModal({ order, onClose, onRefresh }: Props) {
                                             <div className={`flex flex-col items-center gap-1`}>
                                                 <div
                                                     className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                                                        isCurrent ? 'ring-2 ring-offset-2 ring-[#E8A317]' : ''
+                                                        isCurrent ? 'ring-2 ring-offset-2 ring-[#16A34A]' : ''
                                                     }`}
                                                     style={{
                                                         background: isActive ? '#0F0F0F' : '#F5F5F3',
@@ -135,7 +135,7 @@ export default function OrderDetailModal({ order, onClose, onRefresh }: Props) {
                         {currentStatus === 'CANCELLED' && (
                             <div className="bg-[#FEF2F2] rounded-xl p-4 text-center">
                                 <AdminBadge label="CANCELLED" size="md" />
-                                <p className="text-[0.82rem] mt-2 font-semibold" style={{ color: order.cancelledBy === 'CUSTOMER' ? '#D97706' : '#DC2626' }}>
+                                <p className="text-[0.82rem] mt-2 font-semibold" style={{ color: order.cancelledBy === 'CUSTOMER' ? '#15803D' : '#DC2626' }}>
                                     {order.cancelledBy === 'CUSTOMER'
                                         ? 'Cancelled by Customer'
                                         : order.cancelledBy === 'RESTAURANT'
@@ -151,10 +151,10 @@ export default function OrderDetailModal({ order, onClose, onRefresh }: Props) {
                         {/* Payment Guard Warning */}
                         {currentStatus === 'PENDING' && isUnpaidOnline && (
                             <div className="flex items-center gap-3 bg-[#FFF7ED] border border-[#FED7AA] rounded-xl p-4">
-                                <AlertTriangle size={20} className="text-[#D97706] shrink-0" />
+                                <AlertTriangle size={20} className="text-[#15803D] shrink-0" />
                                 <div>
-                                    <p className="font-semibold text-[0.85rem] text-[#D97706]">Payment Pending</p>
-                                    <p className="text-[0.78rem] text-[#92400E]">Online payment hasn't been received yet. Order cannot be accepted until payment is confirmed.</p>
+                                    <p className="font-semibold text-[0.85rem] text-[#15803D]">Payment Pending</p>
+                                    <p className="text-[0.78rem] text-[#166534]">Online payment hasn't been received yet. Order cannot be accepted until payment is confirmed.</p>
                                 </div>
                             </div>
                         )}
@@ -175,7 +175,7 @@ export default function OrderDetailModal({ order, onClose, onRefresh }: Props) {
 
                         {/* Address */}
                         <div className="flex items-start gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-[#FFFBF0] flex items-center justify-center text-[#E8A317] shrink-0">
+                            <div className="w-10 h-10 rounded-xl bg-[#ECFDF5] flex items-center justify-center text-[#16A34A] shrink-0">
                                 <MapPin size={18} />
                             </div>
                             <div>
@@ -234,13 +234,13 @@ export default function OrderDetailModal({ order, onClose, onRefresh }: Props) {
                                 )}
                                 <div className="h-[1px] bg-[#E0E0DC] my-1" />
                                 <div className="flex justify-between font-extrabold font-outfit text-[1.05rem]">
-                                    <span>Total</span><span className="text-[#E8A317]">{'\u20B9'}{order.total}</span>
+                                    <span>Total</span><span className="text-[#16A34A]">{'\u20B9'}{order.total}</span>
                                 </div>
                             </div>
                         </div>
 
                         {/* Estimated Delivery */}
-                        {order.estimatedDeliveryTime && currentStatus !== 'DELIVERED' && currentStatus !== 'CANCELLED' && (
+                        {order.estimatedDeliveryTime && currentStatus !== 'PICKED_UP' && currentStatus !== 'CANCELLED' && (
                             <div className="flex items-center gap-3 bg-[#F0FDF4] rounded-xl p-4">
                                 <Clock size={18} className="text-[#16A34A]" />
                                 <div>
@@ -263,7 +263,7 @@ export default function OrderDetailModal({ order, onClose, onRefresh }: Props) {
                                             <span className="text-[#8E8E8E] text-[0.72rem] whitespace-nowrap w-[70px] shrink-0">
                                                 {new Date(entry.timestamp).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
                                             </span>
-                                            <span className={`w-2 h-2 rounded-full shrink-0 ${entry.status === 'CANCELLED' ? 'bg-[#DC2626]' : entry.status === 'DELIVERED' ? 'bg-[#16A34A]' : 'bg-[#E8A317]'}`} />
+                                            <span className={`w-2 h-2 rounded-full shrink-0 ${entry.status === 'CANCELLED' ? 'bg-[#DC2626]' : entry.status === 'PICKED_UP' ? 'bg-[#16A34A]' : 'bg-[#16A34A]'}`} />
                                             <span className="font-semibold text-[#0F0F0F]">
                                                 {entry.status.replace(/_/g, ' ')}
                                             </span>
@@ -277,7 +277,7 @@ export default function OrderDetailModal({ order, onClose, onRefresh }: Props) {
                 </div>
 
                 {/* Actions Footer */}
-                {currentStatus !== 'DELIVERED' && currentStatus !== 'CANCELLED' && (
+                {currentStatus !== 'PICKED_UP' && currentStatus !== 'CANCELLED' && (
                     <div className="border-t border-[#EEEEEE] px-6 py-4 shrink-0">
                         {currentStatus === 'PENDING' && (
                             <div className="flex flex-col gap-3">
