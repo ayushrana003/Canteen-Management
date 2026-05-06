@@ -146,7 +146,7 @@ export default function OrderTrackingPage() {
                     }
                 },
                 prefill: { name: user?.name ?? '', contact: user?.phone ?? '' },
-                theme: { color: '#E8A317' },
+                theme: { color: '#16A34A' },
             });
             rzp.open();
         } catch {
@@ -188,8 +188,8 @@ export default function OrderTrackingPage() {
     const heading = STATUS_HEADINGS[currentOrder.orderStatus] || 'Tracking your order';
     const subtext = STATUS_SUBTEXT[currentOrder.orderStatus] || '';
 
-    const statusColor = isCancelled ? '#DC2626' : isDelivered ? '#16A34A' : '#E8A317';
-    const statusBg = isCancelled ? '#FEF2F2' : isDelivered ? '#F0FDF4' : '#FFFBF0';
+    const statusColor = isCancelled ? '#DC2626' : isDelivered ? '#16A34A' : '#16A34A';
+    const statusBg = isCancelled ? '#FEF2F2' : isDelivered ? '#F0FDF4' : '#F0FDF4';
 
     return (
         <div style={{ minHeight: '100vh', background: '#F4F4F2' }} className="page-enter">
@@ -212,7 +212,7 @@ export default function OrderTrackingPage() {
                             ? '#DC2626'
                             : isDelivered
                                 ? '#16A34A'
-                                : 'linear-gradient(90deg, #E8A317, #F5C563, #E8A317)',
+                                : 'linear-gradient(90deg, #16A34A, #4ADE80, #16A34A)',
                         backgroundSize: '200% 100%',
                         animation: (!isCancelled && !isDelivered) ? 'shimmer 2s ease-in-out infinite' : 'none',
                     }} />
@@ -261,8 +261,8 @@ export default function OrderTrackingPage() {
                                 display: 'inline-flex', alignItems: 'center', gap: 4,
                                 fontSize: 'clamp(0.62rem, 2vw, 0.72rem)', fontWeight: 600,
                                 padding: '0.3rem 0.6rem', borderRadius: 8,
-                                background: currentOrder.paymentStatus === 'PAID' ? '#F0FDF4' : currentOrder.paymentMethod === 'COD' ? '#FFFBF0' : '#FEF2F2',
-                                color: currentOrder.paymentStatus === 'PAID' ? '#16A34A' : currentOrder.paymentMethod === 'COD' ? '#D97706' : '#DC2626',
+                                background: currentOrder.paymentStatus === 'PAID' ? '#F0FDF4' : currentOrder.paymentMethod === 'COD' ? '#F0FDF4' : '#FEF2F2',
+                                color: currentOrder.paymentStatus === 'PAID' ? '#16A34A' : currentOrder.paymentMethod === 'COD' ? '#16A34A' : '#DC2626',
                             }}>
                                 <CreditCard size={11} />
                                 {currentOrder.paymentStatus === 'PAID' ? 'Paid' : currentOrder.paymentMethod === 'COD' ? 'COD' : 'Pending'}
@@ -284,17 +284,17 @@ export default function OrderTrackingPage() {
                         {countdown && !isCancelled && !isDelivered && (
                             <div style={{
                                 marginTop: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                                background: '#FFFBF0', border: '1px solid #F5E6C8', borderRadius: 12,
+                                background: '#F0FDF4', border: '1px solid #BBF7D0', borderRadius: 12,
                                 padding: '0.5rem 0.85rem',
                             }}>
-                                <Timer size={15} style={{ color: '#E8A317' }} />
+                                <Timer size={15} style={{ color: '#16A34A' }} />
                                 <div style={{ textAlign: 'left' }}>
                                     <p style={{ fontSize: 'clamp(0.58rem, 1.8vw, 0.65rem)', color: '#8E8E8E', fontWeight: 500, margin: 0, lineHeight: 1 }}>
                                         Estimated ready
                                     </p>
                                     <p style={{
                                         fontFamily: 'Outfit, sans-serif', fontWeight: 700,
-                                        fontSize: 'clamp(0.85rem, 2.8vw, 1rem)', color: '#E8A317',
+                                        fontSize: 'clamp(0.85rem, 2.8vw, 1rem)', color: '#16A34A',
                                         margin: 0, lineHeight: 1.2,
                                     }}>
                                         {countdown}
@@ -369,7 +369,7 @@ export default function OrderTrackingPage() {
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             zIndex: 1, transition: 'all 0.3s',
                                             background: isActive ? statusBg : isDone ? '#F0FDF4' : '#F7F7F5',
-                                            color: isActive ? '#E8A317' : isDone ? '#16A34A' : '#C4C4C0',
+                                            color: isActive ? '#16A34A' : isDone ? '#16A34A' : '#C4C4C0',
                                             boxShadow: isActive ? `0 2px 10px ${statusColor}25` : 'none',
                                             border: isActive ? `2px solid ${statusColor}40` : '2px solid transparent',
                                         }}>
@@ -379,7 +379,7 @@ export default function OrderTrackingPage() {
                                             fontSize: 'clamp(0.52rem, 1.7vw, 0.65rem)',
                                             textAlign: 'center', marginTop: '0.3rem', lineHeight: 1.2,
                                             fontWeight: isActive ? 700 : 500,
-                                            color: isActive ? '#E8A317' : isDone ? '#16A34A' : '#8E8E8E',
+                                            color: isActive ? '#16A34A' : isDone ? '#16A34A' : '#8E8E8E',
                                         }}>
                                             <span className="hidden sm:inline">{step.label}</span>
                                             <span className="sm:hidden">{step.mobileLabel}</span>
@@ -394,8 +394,8 @@ export default function OrderTrackingPage() {
                 {/* ── Payment Retry Banner ──────────────────────────── */}
                 {needsPayment && !isCancelled && (
                     <div style={{
-                        background: '#FFFBF0', borderRadius: 16, padding: 'clamp(0.75rem, 3vw, 1.1rem)',
-                        border: '2px solid #FED7AA', marginBottom: '0.75rem',
+                        background: '#F0FDF4', borderRadius: 16, padding: 'clamp(0.75rem, 3vw, 1.1rem)',
+                        border: '2px solid #BBF7D0', marginBottom: '0.75rem',
                     }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.6rem' }}>
                             <div style={{
@@ -415,7 +415,7 @@ export default function OrderTrackingPage() {
                             disabled={retrying}
                             style={{
                                 width: '100%', height: 38, borderRadius: 10,
-                                background: '#E8A317', color: 'white', border: 'none',
+                                background: '#16A34A', color: 'white', border: 'none',
                                 cursor: retrying ? 'wait' : 'pointer',
                                 fontWeight: 700, fontSize: 'clamp(0.72rem, 2.2vw, 0.82rem)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
@@ -439,9 +439,9 @@ export default function OrderTrackingPage() {
                         display: 'flex', alignItems: 'center', gap: '0.4rem',
                     }}>
                         <span style={{
-                            width: 24, height: 24, borderRadius: 6, background: '#FFFBF0',
+                            width: 24, height: 24, borderRadius: 6, background: '#F0FDF4',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            color: '#E8A317', flexShrink: 0,
+                            color: '#16A34A', flexShrink: 0,
                         }}>
                             <UtensilsCrossed size={11} />
                         </span>
@@ -503,7 +503,7 @@ export default function OrderTrackingPage() {
                             <span style={{ fontWeight: 800, fontSize: 'clamp(0.78rem, 2.5vw, 0.9rem)', color: '#0F0F0F' }}>Total</span>
                             <span style={{
                                 fontFamily: 'Outfit, sans-serif', fontWeight: 900,
-                                fontSize: 'clamp(0.85rem, 2.8vw, 1rem)', color: '#E8A317',
+                                fontSize: 'clamp(0.85rem, 2.8vw, 1rem)', color: '#16A34A',
                             }}>
                                 {'\u20B9'}{currentOrder.total}
                             </span>
@@ -554,10 +554,10 @@ export default function OrderTrackingPage() {
                         to="/menu"
                         style={{
                             flex: 1, minWidth: 130, height: 40, borderRadius: 12,
-                            background: '#E8A317', color: 'white', textDecoration: 'none',
+                            background: '#16A34A', color: 'white', textDecoration: 'none',
                             fontWeight: 700, fontSize: 'clamp(0.7rem, 2.2vw, 0.8rem)',
                             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
-                            boxShadow: '0 2px 10px rgba(232,163,23,0.25)',
+                            boxShadow: '0 2px 10px rgba(22,163,74,0.25)',
                         }}
                     >
                         Order Again <ArrowRight size={14} />
